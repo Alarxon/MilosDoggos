@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Millo's Doggos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="icon" href="img/MILOS-DOGGOS_ICONO_01.png" type="image/icon type">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="css/fontawesome/css/solid.css">
+    <style>
+        @font-face {
+            font-family: trendy;
+            src: url(fonts/trendy.ttf);
+        }
+
+        body {
+            font-family: trendy;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+            color: white;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 30%;
+            border-radius: 50%;
+            border-color: wheat;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: #3d5aa5; color: white;">
+    <form action="home.index" method="get">
+        <div class="imgcontainer">
+            <img src="img/MILOS-DOGGOS_ICONO_01_02.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="uname"><b>Usuario</b></label>
+            <input type="text" style="color: black;" placeholder="Escribe Usuario" name="uname" required>
+
+            <label for="psw"><b>Clave</b></label>
+            <input type="password" style="color: black;" placeholder="Escriebe Clave" name="psw" required>
+
+            <button type="submit">Ingresar</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Recuerdame
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#3d5aa5">
+            <a class="cancelbtn btn" href="registro.html">Registrate</a>
+            <span class="psw"><a href="#" style="color: wheat;">Da click aqui si olvidaste tu clave</a></span>
+        </div>
+    </form>
+</body>
+
+</html>
