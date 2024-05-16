@@ -90,17 +90,17 @@
 </head>
 
 <body style="background-color: #3d5aa5; color: white;">
-    <form action="home.index" method="get">
+    <form id="loginForm" action="#" method="get">
         <div class="imgcontainer">
             <img src="img/MILOS-DOGGOS_ICONO_01_02.png" alt="Avatar" class="avatar">
         </div>
 
         <div class="container">
             <label for="uname"><b>Usuario</b></label>
-            <input type="text" style="color: black;" placeholder="Escribe Usuario" name="uname" required>
+            <input type="text" style="color: black;" placeholder="Escribe Usuario" id="uname" name="uname" required>
 
             <label for="psw"><b>Clave</b></label>
-            <input type="password" style="color: black;" placeholder="Escriebe Clave" name="psw" required>
+            <input type="text" style="color: black;" placeholder="Escriebe Clave" id="uname" name="psw" required>
 
             <button type="submit">Ingresar</button>
             <label>
@@ -114,5 +114,24 @@
         </div>
     </form>
 </body>
+
+<script>
+    $(document).ready(function () {
+        $('#loginForm').submit(function (event) {
+            event.preventDefault();
+            var uname = $('#uname').val(); 
+            if (uname === 'admin') {
+                $(this).attr('action', 'admin.html');
+            } else if (uname === 'cliente') {
+                $(this).attr('action', 'cliente.php');
+            } else if (uname === 'cocinero') {
+                $(this).attr('action', 'cocinero.php');
+            } else if (uname === 'repartidor') {
+                $(this).attr('action', 'repartidor.php');
+            }
+            $(this).unbind('submit').submit();
+        });
+    });
+</script>
 
 </html>
