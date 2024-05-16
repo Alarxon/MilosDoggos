@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Millo's Doggos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="icon" href="img/MILOS-DOGGOS_ICONO_01.png" type="image/icon type">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="css/fontawesome/css/solid.css">
+    <style>
+        @font-face {
+            font-family: trendy;
+            src: url(fonts/trendy.ttf);
+        }
+
+        body {
+            font-family: trendy;
+        }
+    </style>
+</head>
+
+<body style="color: #3d5aa5;">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="display-4">Bienvenido</h1>
+                    <p class="lead">Por favor, rellena los campos para poderte registrar en el sistema.</p>
+                    <p class="lead"><a href="mailto:milos.soporte@doggos.com">Dudas y sugerencias da click aqui</a></p>
+                    <hr class="my-4">
+                </div>
+                <div class="col-md-4">
+                    <img width="200" height="200" src="img/MILOS-DOGGOS_ICONO_01.png" alt="Image" class="img-fluid">
+                </div>
+            </div> 
+            <form method="get" action="index.html">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre"
+                        placeholder="Ingresa tu nombre completo">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electronico</label>
+                    <input type="email" class="form-control" id="email" name="email"
+                        placeholder="Ingresa tu correo electronico">
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Direccion</label>
+                    <input type="text" class="form-control" id="direccion" name="direccion"
+                        placeholder="Ingresa tu direccion">
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="edad">Edad</label>
+                            <input type="number" class="form-control" id="edad" name="edad"
+                                placeholder="Ingresa tu edad">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="genero">Genero</label>
+                            <br>
+                            <select id="genero" name="genero" class="form-control">
+                                <option selected>Selecciona una opcion</option>
+                                <option value="1">Femenimo</option>
+                                <option value="2">Masculino</option>
+                                <option value="3">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="nacimiento">Fecha Nacimiento</label>
+                            <input style="font-family: 'Courier New', Courier, monospace;" type="date"
+                                class="form-control" id="nacimiento" name="nacimiento"
+                                placeholder="Ingresa tu fecha de nacimiento">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="opinion">Datos tu opinion<br><br> Que tipo de HotDog te gustan, tus toppings favoritos, etc</label>
+                    <textarea style="resize: none;" class="form-control" id="opinion" name="opinion" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary">Registrate</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
