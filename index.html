@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Millo's Doggos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="icon" href="img/MILOS-DOGGOS_ICONO_01.png" type="image/icon type">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="css/fontawesome/css/solid.css">
+    <style>
+        @font-face {
+            font-family: trendy;
+            src: url(fonts/trendy.ttf);
+        }
+
+        body {
+            font-family: trendy;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            margin: auto;
+            min-height: 200px;
+        }
+
+        @media (max-width: 600px) {
+            .carousel-caption {
+                display: none;
+            }
+        }
+
+        .carousel-indicators li {
+            background-color: gray;
+        }
+
+        .carousel-indicators li.active {
+            background-color: gray;
+        }
+
+        footer {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse" style="background-color: #3d5aa5;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img style="max-height: 50px; max-width: 100px; margin-top: -20px;"
+                        src="img/MILOS-DOGGOS_ICONO_01_02.png" alt="Logo"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a style="color: white;" href="#" id="menuOption">Menu</a></li>
+                    <li><a style="color: white;" href="#" id="nosotrosOption">Nosotros</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="color: white;" href="#"><span class="fa-solid fa-user"></span> Registrate</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="color: white;" href="#"><span class="fa-solid fa-user-tie"></span> Ingresa</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="menu">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="img/MILOS-DOGGOS_ICONO_02_resize.png" alt="Image">
+                </div>
+
+                <div class="item">
+                    <img src="img/carrucel1.png" alt="Image">
+                </div>
+            </div>
+
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"
+                style="display: flex; justify-content: center; align-items: center;">
+                <span class="fa-solid fa-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"
+                style="display: flex; justify-content: center; align-items: center;">
+                <span class="fa-solid fa-chevron-right" aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="jumbotron">
+            <div class="container text-center">
+                <h1>The Hot Dog Cart 🚩</h1>
+                <p>🌭Abierto de Mie a Dom</p>
+                <p>🌭7 PM a 11 PM</p>
+                <p>🌭Servicio de Pick Up y Delivery, Zonas cercanas 📍</p>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-3 text-center" style="color: #3d5aa5;">
+            <h3>Menu</h3><br>
+            <div class="row">
+                <div class="col-sm-3">
+                    <p>EL POLACO</p>
+                    <img src="img/polaco.jpg" class="img-responsive" style="width:100%" alt="Image">
+                    <p>Salchicha Polaca</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>EL CHE</p>
+                    <img src="img/che.jpg" class="img-responsive" style="width:100%" alt="Image">
+                    <p>Salchicha de Chorizo Argentino</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>EL GALLEGO</p>
+                    <img src="img/gallego.jpg" class="img-responsive" style="width:100%" alt="Image">
+                    <p>Salchicha de Chistorra</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>EL ASADO</p>
+                    <img src="img/asar.jpg" class="img-responsive" style="width:100%" alt="Image">
+                    <p>Salchicha para Asar</p>
+                </div>
+            </div>
+        </div><br>
+    </div>
+    <div id="nosotros" style="text-align: center;color: #3d5aa5;">
+        <h1>Quienes Somos</h1>
+        <div class="jumbotron">
+            <div class="container text-center">
+                <h1>Los Mejores Doggos del Puerto</h1>
+                <br>
+            </div>
+        </div>
+        <div class="container-fluid text-center">
+            <p>El negocio Millos Doggos se dedica a la venta de Hot Dogs mediante un food truck
+                ubicado en el hogar del fundador Jose Alonso F. <br> <br>
+                Este nacio con la idea de proveer un servicio de comida rapida accesible, en ubicacion
+                y precio, para las personas que buscan saciar su antojo en horarios vespertinos, con
+                un horario aproximado de 7 a 11 pm.
+                <br><br>
+                Actualmente la venta se realiza de manera presencial o realizando un pedido a traves
+                de nuestra aplicacion movil y pagina web, adicionalmente, realizamos envios a domicilio en
+                zonas cercanas.
+            </p>
+        </div>
+    </div>
+    <footer class="container-fluid text-center">
+        <p>Enterate de nuestras Ofertas</p>
+        <form class="form-inline">
+            <input type="text" class="form-control" size="50" placeholder="Numero de Celular">
+            <button type="button" class="btn" style="color:white;background-color: #3d5aa5;">Registrar</button>
+        </form>
+        <br>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1147.3523997768127!2d-96.13078900609986!3d19.179848672375684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c341106f8616bf%3A0x3f286e89c24e805d!2sMilo&#39;s%20Doggos!5e0!3m2!1ses-419!2smx!4v1715822713369!5m2!1ses-419!2smx"
+            width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </footer>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $('#nosotros').hide();
+
+        $("#menuOption").click(function () {
+            $(".nav.navbar-nav li").removeClass("active");
+            $(this).parent().addClass("active");
+            $('#menu').show();
+            $('#nosotros').hide();
+        });
+
+        $("#nosotrosOption").click(function () {
+            $(".nav.navbar-nav li").removeClass("active");
+            $(this).parent().addClass("active");
+            $('#menu').hide();
+            $('#nosotros').show();
+        });
+    });
+</script>
+
+
+</html>
