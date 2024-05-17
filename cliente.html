@@ -96,7 +96,165 @@
                 </div>
             </div>
             <div class="col-9 col-sm-9" id="pedidos">
-                <h1>Pedido</h1>
+
+                <div class="well" style="text-align: center;background-color: #3d5aa5;">
+                    <h1 style="color: white;">Pedidos</h1>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="#" class="btn btn-block" style="background-color: #3d5aa5; color: white;" data-toggle="modal" data-target="#pedidoModal">🌭 Nuevo Pedido 🌭</a>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12" style="font-family: 'Courier New', Courier, monospace; text-align: center; color: #3d5aa5;">
+                        <div class="well">
+                            <h4>Historial</h4>
+                            <br>
+                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid #3d5aa5;">
+                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                                    Pedido #12345
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">El Polaco</h5>
+                                    <p class="card-text">Cantidad: 2</p>
+                                    <p class="card-text">Precio: $100</p>
+                                    <p class="card-text">Fecha: 2024-05-17</p>
+                                    <a href="#" class="btn btn-primary">Ver Detalles</a>
+                                    <br>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid #3d5aa5;">
+                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                                    Pedido #6789
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">El Basico</h5>
+                                    <p class="card-text">Cantidad: 2</p>
+                                    <p class="card-text">Precio: $110</p>
+                                    <p class="card-text">Fecha: 2024-05-17</p>
+                                    <a href="#" class="btn btn-primary">Ver Detalles</a>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="pedidoModal" tabindex="-1" role="dialog" aria-labelledby="pedidoModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="pedidoModalLabel">Nuevo Pedido</h5>
+                                <button style="font-family: 'Courier New', Courier, monospace;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <img src="img/MILOS-DOGGOS_ICONO_01.png" class="img-responsive" style="width:30%; margin: 0 auto;" alt="Image">
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="tipo" style="color: #3d5aa5;">Tipo</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="tipo" id="tipo1" checked >
+                                            <label class="form-check-label" for="tipo1">
+                                                El Basico
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="tipo" id="tipo2">
+                                            <label class="form-check-label" for="tipo2">
+                                                El Polaco
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="tipo" id="tipo3">
+                                            <label class="form-check-label" for="tipo3">
+                                                El Gallego
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tipo" style="color: #3d5aa5;">Ingredientes</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="toppings">
+                                            <label class="form-check-label" for="toppings">
+                                                Toppings
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="cebolla">
+                                            <label class="form-check-label" for="cebolla">
+                                                Cebolla
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="ketchup">
+                                            <label class="form-check-label" for="ketchup">
+                                                Ketchup
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="mayonesa">
+                                            <label class="form-check-label" for="mayonesa">
+                                                Mayonesa
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="mostaza">
+                                            <label class="form-check-label" for="mostaza">
+                                                Mostaza
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pago" style="color: #3d5aa5;">Metodo de Pago</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="pago" id="efectivo" checked >
+                                            <label class="form-check-label" for="efectivo">
+                                                Efectivo
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="pago" id="paypal">
+                                            <label class="form-check-label" for="paypal">
+                                                PayPal
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="pago" id="transferencia">
+                                            <label class="form-check-label" for="transferencia">
+                                                Transferencia
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="envio" style="color: #3d5aa5;">Envio</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="envio" id="local" checked >
+                                            <label class="form-check-label" for="local">
+                                                Se recogera en el local
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="envio" id="direccion">
+                                            <label class="form-check-label" for="direccion">
+                                                Envio a mi direccion
+                                            </label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary">Enviar Pedido</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
             <div class="col-9 col-sm-9" id="perfil">
                 <div class="well" style="text-align: center;background-color: #3d5aa5; ">
