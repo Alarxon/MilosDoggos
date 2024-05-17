@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Millo's Doggos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="icon" href="img/MILOS-DOGGOS_ICONO_01.png" type="image/icon type">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="css/fontawesome/css/solid.css">
+    <script src="js/Chart.js"></script>
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <script src="js/jquery.dataTables.min.js"></script>
+    <style>
+        @font-face {
+            font-family: trendy;
+            src: url(fonts/trendy.ttf);
+        }
+
+        body {
+            font-family: trendy;
+        }
+
+        .row.content {
+            height: 550px
+        }
+
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        @media screen and (max-width: 767px) {
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse visible-xs" style="background-color: #3d5aa5;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"> <img width="60" height="60" style="margin-top: -25px;"
+                        src="img/MILOS-DOGGOS_ICONO_01_02.png" alt="Logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a id="estadisticasOption2" href="#">Estadisticas</a></li>
+                    <li><a id="pedidosOption2" href="#">Pedidos</a></li>
+                    <li><a id="perfilOption2" href="#">Perfil</a></li>
+                    <li><a href="index.html">Salir</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-3 col-sm-3 sidenav hidden-xs">
+                <img style="width: 100%;" height="200" src="img/MILOS-DOGGOS_ICONO_02_resize.png" alt="Logo">
+                <br>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a id="estadisticasOption" href="#">Estadisticas</a></li>
+                    <li><a id="pedidosOption"  href="#">Pedidos</a></li>
+                    <li><a id="perfilOption" href="#">Perfil</a></li>
+                    <li><a href="index.html">Salir</a></li>
+                </ul><br>
+            </div>
+            <br>
+
+            <div class="col-9 col-sm-9" id="estadisticas">
+                <div class="well" style="text-align: center;background-color: #3d5aa5; ">
+                    <h1 style="color: white;">Tus Estadisticas</h1>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="well">
+                            <h4>Pedidos Atendidos</h4>
+                            <p>100</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="well">
+                            <h4>Calificacion Promedio</h4>
+                            <p>⭐⭐⭐⭐⭐</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="well">
+                            <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="well">
+                            <canvas id="myChart2" style="width:100%;max-width:700px"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="well">
+                            <canvas id="myChart3" style="width:100%;max-width:700px"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="well">
+                            <canvas id="myChart4" style="width:100%;height: 100%;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9 col-sm-9" id="pedidos">
+
+                <div class="well" style="text-align: center;background-color: #3d5aa5;">
+                    <h1 style="color: white;">Pedidos</h1>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12" style="font-family: 'Courier New', Courier, monospace; text-align: center; color: #3d5aa5;">
+                        <div class="well">
+                            <h4><b>Atendiendo</b></h4>
+                            <br>
+                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid green;">
+                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                                    Pedido #393939
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">El Basico</h5>
+                                    <p class="card-text">Direccion: Calle tal entre tal, numero #334. CP #123</p>
+                                    <p class="card-text">Fecha: 2024-05-17</p>
+                                    <p class="card-text">Tiempo Esperando: <b>30 minutos</b></p>
+                                    <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1147.3523997768127!2d-96.13078900609986!3d19.179848672375684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c341106f8616bf%3A0x3f286e89c24e805d!2sMilo&#39;s%20Doggos!5e0!3m2!1ses-419!2smx!4v1715822713369!5m2!1ses-419!2smx"
+                                    width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <a href="#" class="btn btn-primary">Ver Detalles</a> <a href="#" class="btn btn-success">Atender</a>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12" style="font-family: 'Courier New', Courier, monospace; text-align: center; color: #3d5aa5;">
+                        <div class="well">
+                            <h4><b>Disponibles</b></h4>
+                            <br>
+                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid red;">
+                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                                    Pedido #93939
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">El Gallego</h5>
+                                    <p class="card-text">Direccion: Calle tal entre tal, numero #100. CP #93449</p>
+                                    <p class="card-text">Fecha: 2024-05-17</p>
+                                    <p class="card-text">Tiempo Esperando: <b>30 minutos</b></p>
+                                    <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1147.3523997768127!2d-96.13078900609986!3d19.179848672375684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c341106f8616bf%3A0x3f286e89c24e805d!2sMilo&#39;s%20Doggos!5e0!3m2!1ses-419!2smx!4v1715822713369!5m2!1ses-419!2smx"
+                                    width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <a href="#" class="btn btn-primary">Ver Detalles</a> <a href="#" class="btn btn-success">Atender</a>
+                                    <br>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid yellow;">
+                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                                    Pedido #394311
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">El Basico</h5>
+                                    <p class="card-text">Direccion: Calle tal entre tal, numero #111. CP #34534</p>
+                                    <p class="card-text">Fecha: 2024-05-17</p>
+                                    <p class="card-text">Tiempo Esperando: <b>10 minutos</b></p>
+                                    <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1147.3523997768127!2d-96.13078900609986!3d19.179848672375684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c341106f8616bf%3A0x3f286e89c24e805d!2sMilo&#39;s%20Doggos!5e0!3m2!1ses-419!2smx!4v1715822713369!5m2!1ses-419!2smx"
+                                    width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <a href="#" class="btn btn-primary">Ver Detalles</a> <a href="#" class="btn btn-success">Atender</a>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12" style="font-family: 'Courier New', Courier, monospace; text-align: center; color: #3d5aa5;">
+                        <div class="well">
+                            <h4><b>Historial Atendidos</b></h4>
+                            <br>
+                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid #3d5aa5;">
+                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                                    Pedido #12345
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">El Polaco</h5>
+                                    <p class="card-text">Direccion: Calle tal entre tal, numero #34553. CP #3342</p>
+                                    <p class="card-text">Fecha: 2024-05-17</p>
+                                    <a href="#" class="btn btn-primary">Ver Detalles</a>
+                                    <br>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid #3d5aa5;">
+                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                                    Pedido #6789
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">El Basico</h5>
+                                    <p class="card-text">Direccion: Calle tal entre tal, numero #212. CP #312</p>
+                                    <p class="card-text">Fecha: 2024-05-17</p>
+                                    <a href="#" class="btn btn-primary">Ver Detalles</a>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-9 col-sm-9" id="perfil">
+                <div class="well" style="text-align: center;background-color: #3d5aa5; ">
+                    <h1 style="color: white;">Perfil</h1>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12" style="text-align: center; color: #3d5aa5;;">
+                        <div class="well">
+                            <form method="get" action="index.html">
+                                <h4>Mi Perfil</h4>
+                                <p>Da click en la imagen para subir una nueva</p>
+                                <label for="avatar-upload">
+                                    <img src="img/avatar.png" class="img-responsive" style="width:30%; margin: 0 auto; cursor: pointer;" alt="Image">
+                                </label>
+                                <input type="file" id="avatar-upload" name="avatar" style="display: none;">                                <br>
+                                <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input value="S. Alarcon" style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="nombre" name="nombre"
+                                        placeholder="Ingresa tu nombre completo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Correo Electronico</label>
+                                    <input value="prueba@gmail.com" style="font-family: 'Courier New', Courier, monospace;" type="email" class="form-control" id="email" name="email"
+                                        placeholder="Ingresa tu correo electronico">
+                                </div>
+                                <div class="form-group">
+                                    <label for="direccion">Direccion</label>
+                                    <input value="Casa #100 entre Calle 1 y Calle 2, Veracruz, Veracruz. CP. 94390" style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="direccion" name="direccion"
+                                        placeholder="Ingresa tu direccion">
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="edad">Edad</label>
+                                            <input value="26" style="font-family: 'Courier New', Courier, monospace;" type="number" class="form-control" id="edad" name="edad"
+                                                placeholder="Ingresa tu edad">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="genero">Genero</label>
+                                            <br>
+                                            <select id="genero" name="genero" class="form-control" style="font-family: 'Courier New', Courier, monospace;">
+                                                <option selected>Selecciona una opcion</option>
+                                                <option value="1" selected>Femenimo</option>
+                                                <option value="2">Masculino</option>
+                                                <option value="3">Otro</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="nacimiento">Fecha Nacimiento</label>
+                                            <input value="1998-03-04" style="font-family: 'Courier New', Courier, monospace;" type="date"
+                                                class="form-control" id="nacimiento" name="nacimiento"
+                                                placeholder="Ingresa tu fecha de nacimiento">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="opinion">Datos tu opinion<br><br> Que tipo de HotDog te gustan, tus toppings favoritos, etc</label>
+                                    <textarea style="resize: none;font-family: 'Courier New', Courier, monospace;"  class="form-control" id="opinion" name="opinion" rows="5">El polaco y los toppings de papa</textarea>
+                                </div>
+                                <button type="submit" class="btn btn-block btn-primary">Guardar Datos</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+<script>
+    $('#pedidos').hide();
+    $('#perfil').hide();
+
+    $("#estadisticasOption").click(function () {
+        $(".nav-pills li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#estadisticas').show();
+        $('#pedidos').hide();
+        $('#perfil').hide();
+    });
+
+    $("#estadisticasOption2").click(function () {
+        $(".navbar-nav li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#estadisticas').show();
+        $('#pedidos').hide();
+        $('#perfil').hide();
+    });
+
+    $("#pedidosOption").click(function () {
+        $(".nav-pills li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#estadisticas').hide();
+        $('#pedidos').show();
+        $('#perfil').hide();
+    });
+
+    $("#pedidosOption2").click(function () {
+        $(".navbar-nav li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#estadisticas').hide();
+        $('#pedidos').show();
+        $('#perfil').hide();
+    });
+
+    $("#perfilOption").click(function () {
+        $(".nav-pills li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#estadisticas').hide();
+        $('#pedidos').hide();
+        $('#perfil').show();
+    });
+
+    $("#perfilOption2").click(function () {
+        $(".navbar-nav li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#estadisticas').hide();
+        $('#pedidos').hide();
+        $('#perfil').show();
+    });
+</script>
+
+<script>
+    var xyValues = [
+        { x: 50, y: 7 },
+        { x: 60, y: 8 },
+        { x: 70, y: 8 },
+        { x: 80, y: 9 },
+        { x: 90, y: 9 },
+        { x: 100, y: 9 },
+        { x: 110, y: 10 },
+        { x: 120, y: 11 },
+        { x: 130, y: 14 },
+        { x: 140, y: 14 },
+        { x: 150, y: 15 }
+    ];
+
+    new Chart("myChart", {
+        type: "scatter",
+        data: {
+            datasets: [{
+                pointRadius: 4,
+                pointBackgroundColor: "rgb(0,0,255)",
+                data: xyValues
+            }]
+        },
+        options: {
+            legend: { display: false },
+            scales: {
+                xAxes: [{ ticks: { min: 40, max: 160 } }],
+                yAxes: [{ ticks: { min: 6, max: 16 } }],
+            }
+        }
+    });
+
+    new Chart("myChart2", {
+        type: "scatter",
+        data: {
+            datasets: [{
+                pointRadius: 4,
+                pointBackgroundColor: "rgb(0,0,255)",
+                data: xyValues
+            }]
+        },
+        options: {
+            legend: { display: false },
+            scales: {
+                xAxes: [{ ticks: { min: 40, max: 160 } }],
+                yAxes: [{ ticks: { min: 6, max: 16 } }],
+            }
+        }
+    });
+
+    new Chart("myChart3", {
+        type: "scatter",
+        data: {
+            datasets: [{
+                pointRadius: 4,
+                pointBackgroundColor: "rgb(0,0,255)",
+                data: xyValues
+            }]
+        },
+        options: {
+            legend: { display: false },
+            scales: {
+                xAxes: [{ ticks: { min: 40, max: 160 } }],
+                yAxes: [{ ticks: { min: 6, max: 16 } }],
+            }
+        }
+    });
+
+    var xValues = ["Polaca", "Chorizo", "Chistorra", "Asar", "Cerdo"];
+    var yValues = [55, 49, 44, 24, 15];
+    var barColors = ["red", "green", "blue", "orange", "brown"];
+
+    new Chart("myChart4", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: "Estadisticas de Venta del Mes"
+            }
+        }
+    });
+
+    var xValues2 = ["Italy", "France", "Spain", "USA", "Argentina"];
+    var yValues2 = [55, 49, 44, 24, 15];
+    var barColors2 = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9",
+        "#1e7145"
+    ];
+
+</script>
+
+</html>
