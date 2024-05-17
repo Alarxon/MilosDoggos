@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Millo's Doggos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="icon" href="img/MILOS-DOGGOS_ICONO_01.png" type="image/icon type">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="css/fontawesome/css/solid.css">
+    <script src="js/Chart.js"></script>
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <script src="js/jquery.dataTables.min.js"></script>
+    <style>
+        @font-face {
+            font-family: trendy;
+            src: url(fonts/trendy.ttf);
+        }
+
+        body {
+            font-family: trendy;
+        }
+
+        .row.content {
+            height: 550px
+        }
+
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        @media screen and (max-width: 767px) {
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse visible-xs" style="background-color: #3d5aa5;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"> <img width="60" height="60" style="margin-top: -25px;"
+                        src="img/MILOS-DOGGOS_ICONO_01_02.png" alt="Logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a id="ofertasOption2" href="#">Ofertas</a></li>
+                    <li><a id="pedidosOption2" href="#">Pedidos</a></li>
+                    <li><a id="perfilOption2" href="#">Perfil</a></li>
+                    <li><a href="index.html">Salir</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-3 col-sm-3 sidenav hidden-xs">
+                <img style="width: 100%;" height="200" src="img/MILOS-DOGGOS_ICONO_02_resize.png" alt="Logo">
+                <br>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a id="ofertasOption" href="#">Ofertas</a></li>
+                    <li><a id="pedidosOption"  href="#">Pedidos</a></li>
+                    <li><a id="perfilOption" href="#">Perfil</a></li>
+                    <li><a href="index.html">Salir</a></li>
+                </ul><br>
+            </div>
+            <br>
+
+            <div class="col-9 col-sm-9" id="ofertas">
+                <div class="well" style="text-align: center;background-color: #3d5aa5; ">
+                    <h1 style="color: white;">Ofertas</h1>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12" style="text-align: center; color: #3d5aa5;;">
+                        <div class="well">
+                            <h4>Oferta del Dia</h4>
+                            <p>EL POLACO</p>
+                            <img src="img/polaco.jpg" class="img-responsive" style="width:30%; margin: 0 auto;" alt="Image">
+                            <p>Salchicha Polaca</p>
+                            <p style="font-family: 'Courier New', Courier, monospace;"><b style="text-decoration: line-through; color: red;">60</b><b style="color: green;"> 50</b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9 col-sm-9" id="pedidos">
+                <h1>Pedido</h1>
+            </div>
+            <div class="col-9 col-sm-9" id="perfil">
+                <h1>perfil</h1>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+<script>
+    $('#pedidos').hide();
+    $('#perfil').hide();
+
+    $("#ofertasOption").click(function () {
+        $(".nav-pills li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#ofertas').show();
+        $('#pedidos').hide();
+        $('#perfil').hide();
+    });
+
+    $("#ofertasOption2").click(function () {
+        $(".navbar-nav li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#ofertas').show();
+        $('#pedidos').hide();
+        $('#perfil').hide();
+    });
+
+    $("#pedidosOption").click(function () {
+        $(".nav-pills li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#ofertas').hide();
+        $('#pedidos').show();
+        $('#perfil').hide();
+    });
+
+    $("#pedidosOption2").click(function () {
+        $(".navbar-nav li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#ofertas').hide();
+        $('#pedidos').show();
+        $('#perfil').hide();
+    });
+
+    $("#perfilOption").click(function () {
+        $(".nav-pills li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#ofertas').hide();
+        $('#pedidos').hide();
+        $('#perfil').show();
+    });
+
+    $("#perfilOption2").click(function () {
+        $(".navbar-nav li.active").removeClass("active");
+        $(this).parent().addClass("active");
+        $('#ofertas').hide();
+        $('#pedidos').hide();
+        $('#perfil').show();
+    });
+</script>
+
+
+</html>
