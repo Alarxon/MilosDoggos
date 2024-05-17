@@ -99,7 +99,72 @@
                 <h1>Pedido</h1>
             </div>
             <div class="col-9 col-sm-9" id="perfil">
-                <h1>perfil</h1>
+                <div class="well" style="text-align: center;background-color: #3d5aa5; ">
+                    <h1 style="color: white;">Perfil</h1>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12" style="text-align: center; color: #3d5aa5;;">
+                        <div class="well">
+                            <form method="get" action="index.html">
+                                <h4>Mi Perfil</h4>
+                                <p>Da click en la imagen para subir una nueva</p>
+                                <label for="avatar-upload">
+                                    <img src="img/avatar.png" class="img-responsive" style="width:30%; margin: 0 auto; cursor: pointer;" alt="Image">
+                                </label>
+                                <input type="file" id="avatar-upload" name="avatar" style="display: none;">                                <br>
+                                <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input value="S. Alarcon" style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="nombre" name="nombre"
+                                        placeholder="Ingresa tu nombre completo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Correo Electronico</label>
+                                    <input value="prueba@gmail.com" style="font-family: 'Courier New', Courier, monospace;" type="email" class="form-control" id="email" name="email"
+                                        placeholder="Ingresa tu correo electronico">
+                                </div>
+                                <div class="form-group">
+                                    <label for="direccion">Direccion</label>
+                                    <input value="Casa #100 entre Calle 1 y Calle 2, Veracruz, Veracruz. CP. 94390" style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="direccion" name="direccion"
+                                        placeholder="Ingresa tu direccion">
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="edad">Edad</label>
+                                            <input value="26" style="font-family: 'Courier New', Courier, monospace;" type="number" class="form-control" id="edad" name="edad"
+                                                placeholder="Ingresa tu edad">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="genero">Genero</label>
+                                            <br>
+                                            <select id="genero" name="genero" class="form-control" style="font-family: 'Courier New', Courier, monospace;">
+                                                <option selected>Selecciona una opcion</option>
+                                                <option value="1" selected>Femenimo</option>
+                                                <option value="2">Masculino</option>
+                                                <option value="3">Otro</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="nacimiento">Fecha Nacimiento</label>
+                                            <input value="1998-03-04" style="font-family: 'Courier New', Courier, monospace;" type="date"
+                                                class="form-control" id="nacimiento" name="nacimiento"
+                                                placeholder="Ingresa tu fecha de nacimiento">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="opinion">Datos tu opinion<br><br> Que tipo de HotDog te gustan, tus toppings favoritos, etc</label>
+                                    <textarea style="resize: none;font-family: 'Courier New', Courier, monospace;"  class="form-control" id="opinion" name="opinion" rows="5">El polaco y los toppings de papa</textarea>
+                                </div>
+                                <button type="submit" class="btn btn-block btn-primary">Guardar Datos</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
