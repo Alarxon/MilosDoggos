@@ -90,28 +90,39 @@
             </form>
         </div>
     </div>
-    <script>
-        $(document).ready(function() {
-            $('#registrationForm').on('submit', function(e) {
-                e.preventDefault();
 
-                $.ajax({
-                    type: 'POST',
-                    url: 'registro.php',
-                    data: $(this).serialize(),
-                    dataType: 'json',
-                    success: function(response) {
-                        if (response.status === 'success') {
-                            alert('Registro exitoso');
-                            window.location.href = "login.html";
-                        } else {
-                            alert('Error: ' + response.status);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        alert('Error en el servidor: ' + error);
-                    }
-                });
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.21.0/dist/umd/supabase.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Initialize Supabase client
+            const supabaseUrl = 'https://jfxowkbzdovqdpwpbxyg.supabase.co';
+            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmeG93a2J6ZG92cWRwd3BieHlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY4Mzc1MDEsImV4cCI6MjAzMjQxMzUwMX0.owrR1NEhH7uOqLsQn3qUYWKLGQW3NeEQBbYnPyy9BB0';
+            const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+            document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const nombre = document.getElementById('nombre').value;
+                const email = document.getElementById('email').value;
+                const direccion = document.getElementById('direccion').value;
+                const edad = document.getElementById('edad').value;
+                const genero = document.getElementById('genero').value;
+                const nacimiento = document.getElementById('nacimiento').value;
+                const opinion = document.getElementById('opinion').value;
+                const rol = 0;
+
+                const { data, error } = await supabase
+                    .from('usuarios')
+                    .insert([
+                        { nombre, email, direccion, edad, genero, nacimiento, opinion, rol}
+                    ]);
+
+                if (error) {
+                    console.error('Error creando registro:', error);
+                } else {
+                    alert('Registro exitoso');
+                    window.location.href = "login.html";
+                }
             });
         });
     </script>
