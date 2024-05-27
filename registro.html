@@ -41,7 +41,20 @@
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <input type="text" class="form-control" id="nombre" name="nombre"
+                        style="font-family: 'Courier New', Courier, monospace;"
                         placeholder="Ingresa tu nombre completo">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Usuario</label>
+                    <input type="text" class="form-control" id="usuario" name="usuario"
+                        style="font-family: 'Courier New', Courier, monospace;"
+                        placeholder="Ingresa tu usuario">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Clave</label>
+                    <input type="password" class="form-control" id="password" name="password"
+                        style="font-family: 'Courier New', Courier, monospace;"
+                        placeholder="Ingresa tu clave">
                 </div>
                 <div class="form-group">
                     <label for="email">Correo Electronico</label>
@@ -84,7 +97,7 @@
                 </div>
                 <div class="form-group">
                     <label for="opinion">Datos tu opinion<br><br> Que tipo de HotDog te gustan, tus toppings favoritos, etc</label>
-                    <textarea style="resize: none;" class="form-control" id="opinion" name="opinion" rows="5"></textarea>
+                    <textarea style="resize: none;font-family: 'Courier New', Courier, monospace;" class="form-control" id="opinion" name="opinion" rows="5" ></textarea>
                 </div>
                 <button type="submit" class="btn btn-block btn-primary">Registrate</button>
             </form>
@@ -92,6 +105,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.21.0/dist/umd/supabase.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             // Initialize Supabase client
@@ -103,6 +117,9 @@
                 event.preventDefault();
 
                 const nombre = document.getElementById('nombre').value;
+                const usuario = document.getElementById('usuario').value;
+                const password_original = document.getElementById('password').value;
+                const password = CryptoJS.MD5(password_original).toString();
                 const email = document.getElementById('email').value;
                 const direccion = document.getElementById('direccion').value;
                 const edad = document.getElementById('edad').value;
@@ -114,7 +131,7 @@
                 const { data, error } = await supabase
                     .from('usuarios')
                     .insert([
-                        { nombre, email, direccion, edad, genero, nacimiento, opinion, rol}
+                        { nombre, email, direccion, edad, genero, nacimiento, opinion, rol, usuario, password}
                     ]);
 
                 if (error) {
