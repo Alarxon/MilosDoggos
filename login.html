@@ -89,18 +89,18 @@
     </style>
 </head>
 
-<body style="background-color: #3d5aa5; color: white;">
+<body style="background-color: #3d5aa5;">
     <form id="loginForm" action="#" method="get">
         <div class="imgcontainer">
             <img src="img/MILOS-DOGGOS_ICONO_01_02.png" alt="Avatar" class="avatar">
         </div>
 
         <div class="container">
-            <label for="uname"><b>Usuario</b></label>
-            <input type="text" style="color: black;" placeholder="Escribe Usuario" id="uname" name="uname" required>
+            <label for="uname" style="color: white;"><b>Usuario</b></label>
+            <input type="text" style="color: black; font-family: 'Courier New', Courier, monospace;" placeholder="Escribe Usuario" id="uname" name="uname" required>
 
-            <label for="psw"><b>Clave</b></label>
-            <input type="text" style="color: black;" placeholder="Escriebe Clave" id="uname" name="psw" required>
+            <label for="psw" style="color: white;"><b>Clave</b></label>
+            <input type="text" style="color: black; font-family: 'Courier New', Courier, monospace;" placeholder="Escriebe Clave" id="psw" name="psw" required>
 
             <button type="submit">Ingresar</button>
             <label>
@@ -115,21 +115,48 @@
     </form>
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.21.0/dist/umd/supabase.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#loginForm').submit(function (event) {
+        const supabaseUrl = 'https://jfxowkbzdovqdpwpbxyg.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmeG93a2J6ZG92cWRwd3BieHlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY4Mzc1MDEsImV4cCI6MjAzMjQxMzUwMX0.owrR1NEhH7uOqLsQn3qUYWKLGQW3NeEQBbYnPyy9BB0';
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        $('#loginForm').submit(async function (event) {
             event.preventDefault();
-            var uname = $('#uname').val(); 
-            if (uname === 'admin') {
-                $(this).attr('action', 'admin.html');
-            } else if (uname === 'cliente') {
-                $(this).attr('action', 'cliente.html');
-            } else if (uname === 'cocinero') {
-                $(this).attr('action', 'cocinero.html');
-            } else if (uname === 'repartidor') {
-                $(this).attr('action', 'repartidor.html');
+
+            const usuario = document.getElementById('uname').value;
+            const password_original = document.getElementById('psw').value;
+            const password = CryptoJS.MD5(password_original).toString();
+
+            const { data, error } = await supabase
+                .from('usuarios')
+                .select('*')
+                .eq('usuario', usuario)
+                .eq('password', password);
+            
+            //console.log(data[0]['email'])
+            if (error || data.length === 0) {
+                alert('Usuario o clave incorrectos!');
+            } else {
+                var rol = data[0]['rol'];
+                console.log(rol);
+
+                //var uname = $('#uname').val(); 
+                if (rol === 1) {
+                    $(this).attr('action', 'admin.html');
+                } else if (rol === 0) {
+                    $(this).attr('action', 'cliente.html');
+                } else if (rol === 2) {
+                    $(this).attr('action', 'cocinero.html');
+                } else if (rol === 3) {
+                    $(this).attr('action', 'repartidor.html');
+                }
+
+                $(this).unbind('submit').submit();
             }
-            $(this).unbind('submit').submit();
+
         });
     });
 </script>
