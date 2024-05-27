@@ -154,6 +154,7 @@
                     $(this).attr('action', 'repartidor.html');
                 }
 
+                sessionStorage.setItem('usuario', usuario);
                 $(this).unbind('submit').submit();
             }
 

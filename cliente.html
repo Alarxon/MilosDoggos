@@ -39,6 +39,12 @@
             }
         }
     </style>
+    <script>
+        var storedValue = sessionStorage.getItem('usuario');
+        if (!storedValue) {
+            window.location.href = "login.html";
+        }
+    </script>
 </head>
 
 <body>
