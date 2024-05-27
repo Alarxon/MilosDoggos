@@ -37,7 +37,7 @@
                     <img width="200" height="200" src="img/MILOS-DOGGOS_ICONO_01.png" alt="Image" class="img-fluid">
                 </div>
             </div> 
-            <form method="get" action="index.html">
+            <form id="registrationForm">
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <input type="text" class="form-control" id="nombre" name="nombre"
@@ -45,12 +45,12 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Correo Electronico</label>
-                    <input type="email" class="form-control" id="email" name="email"
+                    <input type="email" class="form-control" style="font-family: 'Courier New', Courier, monospace;" id="email" name="email"
                         placeholder="Ingresa tu correo electronico">
                 </div>
                 <div class="form-group">
                     <label for="direccion">Direccion</label>
-                    <input type="text" class="form-control" id="direccion" name="direccion"
+                    <input type="text" class="form-control" style="font-family: 'Courier New', Courier, monospace;"  id="direccion" name="direccion"
                         placeholder="Ingresa tu direccion">
                 </div>
                 <div class="form-row">
@@ -90,7 +90,31 @@
             </form>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#registrationForm').on('submit', function(e) {
+                e.preventDefault();
 
+                $.ajax({
+                    type: 'POST',
+                    url: 'registro.php',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            alert('Registro exitoso');
+                            window.location.href = "login.html";
+                        } else {
+                            alert('Error: ' + response.status);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error en el servidor: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
