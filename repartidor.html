@@ -41,7 +41,8 @@
     </style>
     <script>
         var storedValue = sessionStorage.getItem('usuario');
-        if (!storedValue) {
+        var rol = sessionStorage.getItem('rol');
+        if (!storedValue || rol != 3) {
             window.location.href = "login.html";
         }
     </script>
