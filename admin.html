@@ -38,6 +38,18 @@
                 height: auto;
             }
         }
+
+        table.dataTable {
+            font-family: Arial, sans-serif;
+        }
+
+        .dataTables_info {
+            font-family: Arial, sans-serif;
+        }
+    
+        .dataTables_filter{
+            font-family: Arial, sans-serif;
+        }
     </style>
     <script>
         var storedValue = sessionStorage.getItem('usuario');
@@ -95,25 +107,25 @@
                     <div class="col-sm-3">
                         <div class="well">
                             <h4>Usuarios Activos</h4>
-                            <p>100</p>
+                            <p id="activos_general"></p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="well">
                             <h4>Clientes</h4>
-                            <p>70</p>
+                            <p id="num_clientes"></p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="well">
                             <h4>Repartidores</h4>
-                            <p>25</p>
+                            <p id="num_repartidores"></p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="well">
                             <h4>Cocineros</h4>
-                            <p>5</p>
+                            <p id="num_cocineros"></p>
                         </div>
                     </div>
                 </div>
@@ -161,39 +173,7 @@
                                     <th>Eliminar</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Sergio Alarcon</td>
-                                    <td>sergioUser</td>
-                                    <td>Admin</td>
-                                    <td>Activo</td>
-                                    <td><i class="fa-solid fa-pencil"></i></td>
-                                    <td><i class="fa-solid fa-trash"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Dafne Hernandez</td>
-                                    <td>dafneUser</td>
-                                    <td>Cliente</td>
-                                    <td>Activo</td>
-                                    <td><i class="fa-solid fa-pencil"></i></td>
-                                    <td><i class="fa-solid fa-trash"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Ramon Beltran</td>
-                                    <td>ramonUser</td>
-                                    <td>Cocinero</td>
-                                    <td>Activo</td>
-                                    <td><i class="fa-solid fa-pencil"></i></td>
-                                    <td><i class="fa-solid fa-trash"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Perenganito Rodriguez</td>
-                                    <td>perenUser</td>
-                                    <td>Repartidor</td>
-                                    <td>Activo</td>
-                                    <td><i class="fa-solid fa-pencil"></i></td>
-                                    <td><i class="fa-solid fa-trash"></i></td>
-                                </tr>
+                            <tbody style="font-family: 'Courier New', Courier, monospace;">
                             </tbody>
                         </table>
                     </div>
@@ -204,6 +184,64 @@
     </div>
 </body>
 
+<script src="js/supabase.min.js"></script>
+<script>
+    $(document).ready(async function () {
+        const supabaseUrl = 'https://jfxowkbzdovqdpwpbxyg.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmeG93a2J6ZG92cWRwd3BieHlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY4Mzc1MDEsImV4cCI6MjAzMjQxMzUwMX0.owrR1NEhH7uOqLsQn3qUYWKLGQW3NeEQBbYnPyy9BB0';
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        const { data, error } = await supabase
+                .from('usuarios')
+                .select('*')
+                .eq('status', 1);
+        if (error) {
+            alert('Error! Checa la conexión con la base de datos');
+        }else{
+            $('#activos_general').text(data.length)
+            var num_clientes = 0;
+            var num_repartidores = 0;
+            var num_cocineros = 0;
+            var rol_texto = "";
+            var table = $('#example').DataTable();
+
+            data.forEach(user => {
+                if(user["rol"] === 0){
+                    num_clientes = num_clientes + 1;
+                    rol_texto = "Cliente";
+                }else if(user["rol"] === 3){
+                    num_repartidores = num_repartidores + 1;
+                    rol_texto = "Repartidor";
+                }else if(user["rol"] === 2){
+                    num_cocineros = num_cocineros + 1;
+                    rol_texto = "Cocinero";
+                }else if(user["rol"] === 1){
+                    rol_texto = "Administrador";
+                }
+
+                var status_text = "";
+                if(user["status"] === 1){
+                    status_text = "Activo";
+                }else{
+                    status_text = "Inactivo";
+                }
+
+                var newData = [
+                    user["nombre"],
+                    user["usuario"],
+                    rol_texto,
+                    status_text,
+                    "<i class='fa-solid fa-pencil'></i>",
+                    "<i class='fa-solid fa-pencil'></i>"
+                ];
+                table.row.add(newData).draw(false);
+            });
+            $('#num_clientes').text(num_clientes);
+            $('#num_repartidores').text(num_repartidores);
+            $('#num_cocineros').text(num_cocineros)
+        }
+    });
+</script>
 
 <script>
     $(document).ready(function() {
