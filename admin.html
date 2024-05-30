@@ -194,102 +194,174 @@
                     <img src="img/MILOS-DOGGOS_ICONO_01.png" class="img-responsive" style="width:30%; margin: 0 auto;" alt="Image">
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="registrationForm">
                         <div class="form-group">
-                            <label for="tipo" style="color: #3d5aa5;">Tipo</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tipo" id="tipo1" checked >
-                                <label class="form-check-label" for="tipo1">
-                                    El Basico
-                                </label>
+                            <label for="nombre">Nombre</label>
+                            <input required type="text" class="form-control" id="nombre" name="nombre"
+                                style="font-family: 'Courier New', Courier, monospace;"
+                                placeholder="Ingresa tu nombre completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Usuario</label>
+                            <input required type="text" class="form-control" id="usuario" name="usuario"
+                                style="font-family: 'Courier New', Courier, monospace;"
+                                placeholder="Ingresa tu usuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Clave</label>
+                            <input required type="password" class="form-control" id="password" name="password"
+                                style="font-family: 'Courier New', Courier, monospace;"
+                                placeholder="Ingresa tu clave">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electronico</label>
+                            <input required type="email" class="form-control" style="font-family: 'Courier New', Courier, monospace;" id="email" name="email"
+                                placeholder="Ingresa tu correo electronico">
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion">Direccion</label>
+                            <input required type="text" class="form-control" style="font-family: 'Courier New', Courier, monospace;"  id="direccion" name="direccion"
+                                placeholder="Ingresa tu direccion">
+                            <label for="rol_insert">Rol</label>
+                            <select id="rol_insert" name="rol_insert" class="form-control">
+                                <option value="1" selected>Selecciona una opcion</option>
+                                <option value="1">Administrador</option>
+                                <option value="0">Cliente</option>
+                                <option value="2">Cocinero</option>
+                                <option value="3">Repartidor</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="edad">Edad</label>
+                                    <input required type="number" class="form-control" id="edad" name="edad"
+                                        placeholder="Ingresa tu edad">
+                                </div>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tipo" id="tipo2">
-                                <label class="form-check-label" for="tipo2">
-                                    El Polaco
-                                </label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="genero">Genero</label>
+                                    <br>
+                                    <select id="genero" name="genero" class="form-control">
+                                        <option value="1" selected>Selecciona una opcion</option>
+                                        <option value="1">Femenimo</option>
+                                        <option value="2">Masculino</option>
+                                        <option value="3">Otro</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="tipo" id="tipo3">
-                                <label class="form-check-label" for="tipo3">
-                                    El Gallego
-                                </label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="nacimiento">Fecha Nacimiento</label>
+                                    <input required style="font-family: 'Courier New', Courier, monospace;" type="date"
+                                        class="form-control" id="nacimiento" name="nacimiento"
+                                        placeholder="Ingresa tu fecha de nacimiento">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="tipo" style="color: #3d5aa5;">Ingredientes</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="toppings">
-                                <label class="form-check-label" for="toppings">
-                                    Toppings
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="cebolla">
-                                <label class="form-check-label" for="cebolla">
-                                    Cebolla
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="ketchup">
-                                <label class="form-check-label" for="ketchup">
-                                    Ketchup
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="mayonesa">
-                                <label class="form-check-label" for="mayonesa">
-                                    Mayonesa
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="mostaza">
-                                <label class="form-check-label" for="mostaza">
-                                    Mostaza
-                                </label>
-                            </div>
+                            <label for="opinion">Datos tu opinion<br><br> Que tipo de HotDog te gustan, tus toppings favoritos, etc</label>
+                            <textarea style="resize: none;font-family: 'Courier New', Courier, monospace;" class="form-control" id="opinion" name="opinion" rows="5" ></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="pago" style="color: #3d5aa5;">Metodo de Pago</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pago" id="efectivo" checked >
-                                <label class="form-check-label" for="efectivo">
-                                    Efectivo
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pago" id="paypal">
-                                <label class="form-check-label" for="paypal">
-                                    PayPal
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pago" id="transferencia">
-                                <label class="form-check-label" for="transferencia">
-                                    Transferencia
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="envio" style="color: #3d5aa5;">Envio</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="envio" id="local" checked >
-                                <label class="form-check-label" for="local">
-                                    Se recogera en el local
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="envio" id="direccion">
-                                <label class="form-check-label" for="direccion">
-                                    Envio a mi direccion
-                                </label>
-                            </div>
-                        </div>
+                        <button type="submit" class="btn btn-block btn-primary">Registrar</button>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Enviar Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Editar Usuario</h5>
+                    <button style="font-family: 'Courier New', Courier, monospace;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <img src="img/MILOS-DOGGOS_ICONO_01.png" class="img-responsive" style="width:30%; margin: 0 auto;" alt="Image">
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <input type="hidden" id="id_edit" name="id_edit">
+                        <div class="form-group">
+                            <label for="nombre_edit">Nombre</label>
+                            <input required type="text" class="form-control" id="nombre_edit" name="nombre_edit"
+                                style="font-family: 'Courier New', Courier, monospace;"
+                                placeholder="Ingresa tu nombre completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="usuario_edit">Usuario</label>
+                            <input required type="text" class="form-control" id="usuario_edit" name="usuario_edit"
+                                style="font-family: 'Courier New', Courier, monospace;"
+                                placeholder="Ingresa tu usuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="password_edit">Clave</label>
+                            <input required type="password" class="form-control" id="password_edit" name="password_edit"
+                                style="font-family: 'Courier New', Courier, monospace;"
+                                placeholder="Ingresa tu clave">
+                        </div>
+                        <div class="form-group">
+                            <label for="email_edit">Correo Electronico</label>
+                            <input required type="email" class="form-control" style="font-family: 'Courier New', Courier, monospace;" id="email_edit" name="email_edit"
+                                placeholder="Ingresa tu correo electronico">
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion_edit">Direccion</label>
+                            <input required type="text" class="form-control" style="font-family: 'Courier New', Courier, monospace;"  id="direccion_edit" name="direccion_edit"
+                                placeholder="Ingresa tu direccion">
+                            <label for="rol_edit">Rol</label>
+                            <select id="rol_edit" name="rol_edit" class="form-control">
+                                <option value="-1" selected>Selecciona una opcion</option>
+                                <option value="1">Administrador</option>
+                                <option value="0">Cliente</option>
+                                <option value="2">Cocinero</option>
+                                <option value="3">Repartidor</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="edad_edit">Edad</label>
+                                    <input required type="number" class="form-control" id="edad_edit" name="edad_edit"
+                                        placeholder="Ingresa tu edad">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="genero_edit">Genero</label>
+                                    <br>
+                                    <select id="genero_edit" name="genero_edit" class="form-control">
+                                        <option value="-1" selected>Selecciona una opcion</option>
+                                        <option value="1">Femenimo</option>
+                                        <option value="2">Masculino</option>
+                                        <option value="3">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="nacimiento_edit">Fecha Nacimiento</label>
+                                    <input required style="font-family: 'Courier New', Courier, monospace;" type="date"
+                                        class="form-control" id="nacimiento_edit" name="nacimiento_edit"
+                                        placeholder="Ingresa tu fecha de nacimiento">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="opinion_edit">Datos tu opinion<br><br> Que tipo de HotDog te gustan, tus toppings favoritos, etc</label>
+                            <textarea style="resize: none;font-family: 'Courier New', Courier, monospace;" class="form-control" id="opinion_edit" name="opinion_edit" rows="5" ></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary">Guardar</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -297,12 +369,13 @@
 </body>
 
 <script src="js/supabase.min.js"></script>
+<script src="js/crypto-js.min.js"></script>
 <script>
-    $(document).ready(async function () {
-        const supabaseUrl = 'https://jfxowkbzdovqdpwpbxyg.supabase.co';
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmeG93a2J6ZG92cWRwd3BieHlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY4Mzc1MDEsImV4cCI6MjAzMjQxMzUwMX0.owrR1NEhH7uOqLsQn3qUYWKLGQW3NeEQBbYnPyy9BB0';
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+    const supabaseUrl = 'https://jfxowkbzdovqdpwpbxyg.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmeG93a2J6ZG92cWRwd3BieHlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY4Mzc1MDEsImV4cCI6MjAzMjQxMzUwMX0.owrR1NEhH7uOqLsQn3qUYWKLGQW3NeEQBbYnPyy9BB0';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+    $(document).ready(async function () {
         const { data, error } = await supabase
                 .from('usuarios')
                 .select('*')
@@ -338,13 +411,19 @@
                     status_text = "Inactivo";
                 }
 
+                var editar_text = user["id"] + ",\"" + user["nombre"] + "\",\"" + 
+                    user["usuario"] + "\",\"" + user["email"] + "\",\"" + user["direccion"]
+                    + "\",\"" + user["rol"] + "\"," + user["edad"] + "," + 
+                    user["genero"] + ",\"" + user["nacimiento"] + "\",\"" + 
+                    user["opinion"] + "\"";
+
                 var newData = [
                     user["nombre"],
                     user["usuario"],
                     rol_texto,
                     status_text,
-                    "<i class='fa-solid fa-pencil'></i>",
-                    "<i class='fa-solid fa-pencil'></i>"
+                    "<i onclick='editar(" + editar_text + ")' data-toggle='modal' data-target='#editModal' class='fa-solid fa-pencil'></i>",
+                    "<i onclick='eliminar(" + user["id"] + ")'class='fa-solid fa-trash'></i>"
                 ];
                 table.row.add(newData).draw(false);
             });
@@ -352,7 +431,68 @@
             $('#num_repartidores').text(num_repartidores);
             $('#num_cocineros').text(num_cocineros)
         }
+
+
+        document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const nombre = document.getElementById('nombre').value;
+                const usuario = document.getElementById('usuario').value;
+                const password_original = document.getElementById('password').value;
+                const password = CryptoJS.MD5(password_original).toString();
+                const email = document.getElementById('email').value;
+                const direccion = document.getElementById('direccion').value;
+                const edad = document.getElementById('edad').value;
+                const genero = document.getElementById('genero').value;
+                const nacimiento = document.getElementById('nacimiento').value;
+                const opinion = document.getElementById('opinion').value;
+                const rol = document.getElementById('rol_insert').value;
+
+                const { data, error } = await supabase
+                    .from('usuarios')
+                    .insert([
+                        { nombre, email, direccion, edad, genero, nacimiento, opinion, rol, usuario, password}
+                    ]);
+
+                if (error) {
+                    console.error('Error creando registro:', error);
+                } else {
+                    alert('Registro exitoso');
+                    location.reload();
+                }
+        });
     });
+
+    
+    async function eliminar(id){
+        const userConfirmed = confirm("¿Quieres realmente eliminar este usuario?");
+        if (userConfirmed) {
+            const { data, error } = await supabase
+            .from('usuarios')
+            .update({
+                status: 0
+            })
+            .eq('id', id);
+            alert('Se elimino correctamente');
+            location.reload();
+        }
+    }
+
+    function editar(id_edit, nombre_edit, usuario_edit, email_edit,
+        direccion_edit, rol_edit, edad_edit, genero_edit,
+        nacimiento_edit, opinion_edit
+    ){
+        document.getElementById('id_edit').value = id_edit;
+        document.getElementById('nombre_edit').value = nombre_edit;
+        document.getElementById('usuario_edit').value = usuario_edit;
+        document.getElementById('email_edit').value = email_edit;
+        document.getElementById('direccion_edit').value = direccion_edit;
+        document.getElementById('rol_edit').value = rol_edit;
+        document.getElementById('edad_edit').value = edad_edit;
+        document.getElementById('genero_edit').value = genero_edit;
+        document.getElementById('nacimiento_edit').value = nacimiento_edit;
+        document.getElementById('opinion_edit').value = opinion_edit;
+    }
 </script>
 
 <script>

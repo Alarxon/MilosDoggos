@@ -40,37 +40,37 @@
             <form id="registrationForm">
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre"
+                    <input required type="text" class="form-control" id="nombre" name="nombre"
                         style="font-family: 'Courier New', Courier, monospace;"
                         placeholder="Ingresa tu nombre completo">
                 </div>
                 <div class="form-group">
                     <label for="nombre">Usuario</label>
-                    <input type="text" class="form-control" id="usuario" name="usuario"
+                    <input required type="text" class="form-control" id="usuario" name="usuario"
                         style="font-family: 'Courier New', Courier, monospace;"
                         placeholder="Ingresa tu usuario">
                 </div>
                 <div class="form-group">
                     <label for="nombre">Clave</label>
-                    <input type="password" class="form-control" id="password" name="password"
+                    <input required type="password" class="form-control" id="password" name="password"
                         style="font-family: 'Courier New', Courier, monospace;"
                         placeholder="Ingresa tu clave">
                 </div>
                 <div class="form-group">
                     <label for="email">Correo Electronico</label>
-                    <input type="email" class="form-control" style="font-family: 'Courier New', Courier, monospace;" id="email" name="email"
+                    <input required type="email" class="form-control" style="font-family: 'Courier New', Courier, monospace;" id="email" name="email"
                         placeholder="Ingresa tu correo electronico">
                 </div>
                 <div class="form-group">
                     <label for="direccion">Direccion</label>
-                    <input type="text" class="form-control" style="font-family: 'Courier New', Courier, monospace;"  id="direccion" name="direccion"
+                    <input required type="text" class="form-control" style="font-family: 'Courier New', Courier, monospace;"  id="direccion" name="direccion"
                         placeholder="Ingresa tu direccion">
                 </div>
                 <div class="form-row">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="edad">Edad</label>
-                            <input type="number" class="form-control" id="edad" name="edad"
+                            <input required type="number" class="form-control" id="edad" name="edad"
                                 placeholder="Ingresa tu edad">
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                             <label for="genero">Genero</label>
                             <br>
                             <select id="genero" name="genero" class="form-control">
-                                <option selected>Selecciona una opcion</option>
+                                <option value="1" selected>Selecciona una opcion</option>
                                 <option value="1">Femenimo</option>
                                 <option value="2">Masculino</option>
                                 <option value="3">Otro</option>
@@ -89,7 +89,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="nacimiento">Fecha Nacimiento</label>
-                            <input style="font-family: 'Courier New', Courier, monospace;" type="date"
+                            <input required style="font-family: 'Courier New', Courier, monospace;" type="date"
                                 class="form-control" id="nacimiento" name="nacimiento"
                                 placeholder="Ingresa tu fecha de nacimiento">
                         </div>
