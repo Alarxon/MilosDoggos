@@ -110,7 +110,7 @@
 
         <div class="container" style="background-color:#3d5aa5">
             <a class="cancelbtn btn" href="registro.html">Registrate</a>
-            <span class="psw"><a href="#" style="color: wheat;">Da click aqui si olvidaste tu clave</a></span>
+            <span class="psw"><a href="mailto:soporte@milos.com?subject=Reseteo de contraseña" style="color: wheat;">Da click aqui si olvidaste tu clave</a></span>
         </div>
     </form>
 </body>
@@ -141,6 +141,7 @@
                 alert('Usuario o clave incorrectos!');
             } else {
                 var rol = data[0]['rol'];
+                var id = data[0]['id'];
                 //console.log(rol);
 
                 //var uname = $('#uname').val(); 
@@ -156,6 +157,7 @@
 
                 sessionStorage.setItem('usuario', usuario);
                 sessionStorage.setItem('rol', rol);
+                sessionStorage.setItem('id', id);
                 $(this).unbind('submit').submit();
             }
 

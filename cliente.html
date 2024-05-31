@@ -96,10 +96,10 @@
                     <div class="col-sm-12" style="text-align: center; color: #3d5aa5;;">
                         <div class="well">
                             <h4>Oferta del Dia</h4>
-                            <p>EL POLACO</p>
-                            <img src="img/polaco.jpg" class="img-responsive" style="width:30%; margin: 0 auto;" alt="Image">
-                            <p>Salchicha Polaca</p>
-                            <p style="font-family: 'Courier New', Courier, monospace;"><b style="text-decoration: line-through; color: red;">60</b><b style="color: green;"> 50</b></p>
+                            <p id="oferta_name"></p>
+                            <img id="oferta_img" class="img-responsive" style="width:30%; margin: 0 auto;" alt="Image">
+                            <p id="oferta_info"></p>
+                            <p style="font-family: 'Courier New', Courier, monospace;"><b style="text-decoration: line-through; color: red;" id="oferta_original"></b><b style="color: green;" id="oferta_nuevo"></b></p>
                         </div>
                     </div>
                 </div>
@@ -272,33 +272,33 @@
                 <div class="row">
                     <div class="col-sm-12" style="text-align: center; color: #3d5aa5;;">
                         <div class="well">
-                            <form method="get" action="index.html">
+                            <form id="perfilform">
                                 <h4>Mi Perfil</h4>
                                 <p>Da click en la imagen para subir una nueva</p>
                                 <label for="avatar-upload">
-                                    <img src="img/avatar.png" class="img-responsive" style="width:30%; margin: 0 auto; cursor: pointer;" alt="Image">
+                                    <img id="img_perfil" src="img/avatar.png" class="img-responsive" style="width:30%; margin: 0 auto; cursor: pointer;" alt="Image">
                                 </label>
-                                <input type="file" id="avatar-upload" name="avatar" style="display: none;">                                <br>
+                                <input onchange="changeImg()" type="file" id="avatar-upload" name="img_perfil" style="display: none;">                                <br>
                                 <div class="form-group">
                                     <label for="nombre">Nombre</label>
-                                    <input value="S. Alarcon" style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="nombre" name="nombre"
+                                    <input required style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="nombre" name="nombre"
                                         placeholder="Ingresa tu nombre completo">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Correo Electronico</label>
-                                    <input value="prueba@gmail.com" style="font-family: 'Courier New', Courier, monospace;" type="email" class="form-control" id="email" name="email"
+                                    <input required style="font-family: 'Courier New', Courier, monospace;" type="email" class="form-control" id="email" name="email"
                                         placeholder="Ingresa tu correo electronico">
                                 </div>
                                 <div class="form-group">
                                     <label for="direccion">Direccion</label>
-                                    <input value="Casa #100 entre Calle 1 y Calle 2, Veracruz, Veracruz. CP. 94390" style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="direccion" name="direccion"
+                                    <input required style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="direccion_perfil" name="direccion"
                                         placeholder="Ingresa tu direccion">
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="edad">Edad</label>
-                                            <input value="26" style="font-family: 'Courier New', Courier, monospace;" type="number" class="form-control" id="edad" name="edad"
+                                            <input required style="font-family: 'Courier New', Courier, monospace;" type="number" class="form-control" id="edad" name="edad"
                                                 placeholder="Ingresa tu edad">
                                         </div>
                                     </div>
@@ -306,9 +306,9 @@
                                         <div class="form-group">
                                             <label for="genero">Genero</label>
                                             <br>
-                                            <select id="genero" name="genero" class="form-control" style="font-family: 'Courier New', Courier, monospace;">
-                                                <option selected>Selecciona una opcion</option>
-                                                <option value="1" selected>Femenimo</option>
+                                            <select required id="genero" name="genero" class="form-control" style="font-family: 'Courier New', Courier, monospace;">
+                                                <option>Selecciona una opcion</option>
+                                                <option value="1">Femenimo</option>
                                                 <option value="2">Masculino</option>
                                                 <option value="3">Otro</option>
                                             </select>
@@ -317,7 +317,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="nacimiento">Fecha Nacimiento</label>
-                                            <input value="1998-03-04" style="font-family: 'Courier New', Courier, monospace;" type="date"
+                                            <input required style="font-family: 'Courier New', Courier, monospace;" type="date"
                                                 class="form-control" id="nacimiento" name="nacimiento"
                                                 placeholder="Ingresa tu fecha de nacimiento">
                                         </div>
@@ -325,7 +325,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="opinion">Datos tu opinion<br><br> Que tipo de HotDog te gustan, tus toppings favoritos, etc</label>
-                                    <textarea style="resize: none;font-family: 'Courier New', Courier, monospace;"  class="form-control" id="opinion" name="opinion" rows="5">El polaco y los toppings de papa</textarea>
+                                    <textarea style="resize: none;font-family: 'Courier New', Courier, monospace;"  class="form-control" id="opinion" name="opinion" rows="5" required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-block btn-primary">Guardar Datos</button>
                             </form>
@@ -337,7 +337,132 @@
     </div>
 </body>
 
+<script src="js/supabase.min.js"></script>
+<script src="js/crypto-js.min.js"></script>
+<script>
+    const supabaseUrl = 'https://jfxowkbzdovqdpwpbxyg.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmeG93a2J6ZG92cWRwd3BieHlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY4Mzc1MDEsImV4cCI6MjAzMjQxMzUwMX0.owrR1NEhH7uOqLsQn3qUYWKLGQW3NeEQBbYnPyy9BB0';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+    function getBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+
+    $(document).ready(async function () {
+        var id = sessionStorage.getItem('id');
+        const { data, error } = await supabase
+                .from('usuarios')
+                .select('*')
+                .eq('id', id);
+        const { data: data2, error: error2 } = await supabase
+                .from('system')
+                .select('*')
+                .eq('id', 1);
+        
+        if (error || error2) {
+            alert('Error! Checa la conexión con la base de datos');
+        }else{
+            var titulo = "";
+            var info = "";
+            var img = "";
+            if(data2[0]["hotdog_oferta"] === 0){
+                titulo = "EL POLACO";
+                info = "Salchicha Polaca";
+                img = "img/polaco.jpg";
+            }else if(data2[0]["hotdog_oferta"] === 1){
+                titulo = "EL CHE";
+                info = "Salchicha Argentina";
+                img = "img/che.jpg";
+            }else if(data2[0]["hotdog_oferta"] === 2){
+                titulo = "EL GALLEGO";
+                info = "Salchicha Española";
+                img = "img/gallego.jpg";
+            }else if(data2[0]["hotdog_oferta"] === 3){
+                titulo = "EL ASADO";
+                info = "Salchicha para Asar";
+                img = "img/asar.jpg";
+            }
+
+            document.getElementById('oferta_name').innerText  = titulo;
+            document.getElementById('oferta_img').src = img;
+            document.getElementById('oferta_info').innerText  = info;
+            document.getElementById('oferta_original').innerText  = data2[0]["original_oferta"];
+            document.getElementById('oferta_nuevo').innerText  = " " + data2[0]["nuevo_oferta"];
+
+            document.getElementById('nombre').value = data[0]["nombre"];
+            document.getElementById('email').value = data[0]["email"];
+            document.getElementById('direccion_perfil').value = data[0]["direccion"];
+            document.getElementById('edad').value = data[0]["edad"];
+            document.getElementById('genero').value = data[0]["genero"];
+            document.getElementById('nacimiento').value = data[0]["nacimiento"];
+            document.getElementById('opinion').value = data[0]["opinion"];
+
+            document.getElementById('img_perfil').src = data[0]["foto"];
+        }
+
+        document.getElementById('perfilform').addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                var id = sessionStorage.getItem('id');
+
+                const fileInput = document.getElementById('avatar-upload').files[0];
+
+                var foto = null;
+
+                if (fileInput) {
+                    foto = await getBase64(fileInput);
+                }
+
+                const nombre = document.getElementById('nombre').value;
+                const email = document.getElementById('email').value;
+                const direccion = document.getElementById('direccion_perfil').value;
+                const edad = document.getElementById('edad').value;
+                const genero = document.getElementById('genero').value;
+                const nacimiento = document.getElementById('nacimiento').value;
+                const opinion = document.getElementById('opinion').value;
+
+                const { data, error } = await supabase
+                    .from('usuarios')
+                    .update([
+                        { nombre: nombre, 
+                          email: email, 
+                          direccion: direccion, 
+                          edad: edad, 
+                          genero: genero,
+                          nacimiento: nacimiento, 
+                          opinion: opinion,
+                          foto: foto
+                        }
+                    ])
+                    .eq('id', id);
+
+                if (error) {
+                    console.error('Error actualizando registro:', error);
+                } else {
+                    alert('Actualizamiento exitoso');
+                    location.reload();
+                }
+
+        });
+    });
+
+    async function changeImg(){
+            const fileInput = document.getElementById('avatar-upload').files[0];
+
+            if (fileInput) {
+                const base64String = await getBase64(fileInput);
+                const jsonObject = {
+                        image: base64String
+                };
+                document.getElementById('img_perfil').src = base64String;
+            }
+    }
+</script>
 
 <script>
     $('#pedidos').hide();
