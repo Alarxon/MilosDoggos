@@ -302,9 +302,15 @@
                         </div>
                         <div class="form-group">
                             <label for="password_edit">Clave</label>
-                            <input required type="password" class="form-control" id="password_edit" name="password_edit"
+                            <input type="password" class="form-control" id="password_edit" name="password_edit"
                                 style="font-family: 'Courier New', Courier, monospace;"
                                 placeholder="Ingresa tu clave">
+                        </div>
+                        <div class="form-group">
+                            <label for="changeclave">
+                                    Activa para cambiar la clave
+                            </label>
+                            <input class="form-control" style="height: 10%;" type="checkbox" value="1" id="changeclave">
                         </div>
                         <div class="form-group">
                             <label for="email_edit">Correo Electronico</label>
@@ -460,6 +466,66 @@
                     alert('Registro exitoso');
                     location.reload();
                 }
+        });
+
+        document.getElementById('editForm').addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const id = document.getElementById('id_edit').value;
+                const changeclave = document.getElementById('changeclave').checked;
+
+                const nombre = document.getElementById('nombre_edit').value;
+                const usuario = document.getElementById('usuario_edit').value;
+                const password_original = document.getElementById('password_edit').value;
+                const password = CryptoJS.MD5(password_original).toString();
+                const email = document.getElementById('email_edit').value;
+                const direccion = document.getElementById('direccion_edit').value;
+                const edad = document.getElementById('edad_edit').value;
+                const genero = document.getElementById('genero_edit').value;
+                const nacimiento = document.getElementById('nacimiento_edit').value;
+                const opinion = document.getElementById('opinion_edit').value;
+                const rol = document.getElementById('rol_edit').value;
+
+                if(changeclave == true){
+                    const { data, error } = await supabase
+                    .from('usuarios')
+                    .update([
+                        { nombre: nombre, 
+                          email: email, 
+                          direccion: direccion, 
+                          edad: edad, 
+                          genero: genero,
+                          nacimiento: nacimiento, 
+                          opinion: opinion, 
+                          rol: rol, 
+                          usuario: usuario, 
+                          password: password}
+                    ])
+                    .eq('id', id);
+                }else{
+                    const { data, error } = await supabase
+                    .from('usuarios')
+                    .update([
+                        { nombre: nombre, 
+                          email: email, 
+                          direccion: direccion, 
+                          edad: edad, 
+                          genero: genero,
+                          nacimiento: nacimiento, 
+                          opinion: opinion, 
+                          rol: rol, 
+                          usuario: usuario}
+                    ])
+                    .eq('id', id);
+                }
+
+                if (error) {
+                    console.error('Error actualizando registro:', error);
+                } else {
+                    alert('Actualizamiento exitoso');
+                    location.reload();
+                }
+
         });
     });
 
