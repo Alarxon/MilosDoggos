@@ -103,6 +103,30 @@
                     <h4>Dashboard</h4>
                     <p>Estadisticas generales del sistema</p>
                 </div>
+                <div class="well">
+                    <h4>Oferta del dia</h4>
+                    <form id="ofertaform">
+                        <div class="form-group">
+                            <select id="oferta" name="oferta" class="form-control">
+                                <option value="0">El Polaco</option>
+                                <option value="1">El Che</option>
+                                <option value="2">El Gallego</option>
+                                <option value="3">El Asado</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="">Anterior</label>
+                                <input type="number" min="1" step="any" class="form-control" id="anterior" name="anterior" placeholder="Precio Anterior">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="">Nuevo</label>
+                                <input type="number" min="1" step="any" class="form-control" id="nuevo" name="nuevo" placeholder="Precio Nuevo">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary">Guardar</button>
+                    </form>
+                </div>
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="well">
@@ -386,9 +410,20 @@
                 .from('usuarios')
                 .select('*')
                 .eq('status', 1);
-        if (error) {
+        const { data: data2, error: error2 } = await supabase
+                .from('system')
+                .select('*')
+                .eq('id', 1);
+
+        if (error || error2) {
             alert('Error! Checa la conexión con la base de datos');
         }else{
+            console.log(data2[0]["hotdog_oferta"]);
+            document.getElementById('oferta').value = data2[0]["hotdog_oferta"];
+            document.getElementById('anterior').value = data2[0]["original_oferta"];
+            document.getElementById('nuevo').value = data2[0]["nuevo_oferta"];
+
+
             $('#activos_general').text(data.length)
             var num_clientes = 0;
             var num_repartidores = 0;
@@ -466,6 +501,30 @@
                     alert('Registro exitoso');
                     location.reload();
                 }
+        });
+
+        document.getElementById('ofertaform').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const hotdog_oferta = document.getElementById('oferta').value;
+            const original_oferta = document.getElementById('anterior').value;
+            const nuevo_oferta = document.getElementById('nuevo').value;
+
+            const { data, error } = await supabase
+                    .from('system')
+                    .update([
+                        { hotdog_oferta: hotdog_oferta, 
+                          original_oferta: original_oferta, 
+                          nuevo_oferta: nuevo_oferta
+                        }
+                    ])
+                    .eq('id', 1);
+            if (error) {
+                console.error('Error actualizando registro:', error);
+            } else {
+                alert('Actualizamieno exitoso');
+                location.reload();
+            }
         });
 
         document.getElementById('editForm').addEventListener('submit', async function(event) {
