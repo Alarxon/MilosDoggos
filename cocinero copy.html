@@ -139,7 +139,7 @@
                 <br>
                 <div class="row">
                     <div class="col-sm-12" style="font-family: 'Courier New', Courier, monospace; text-align: center; color: #3d5aa5;">
-                        <div id="lista_atendiendo" class="well">
+                        <div class="well">
                             <h4><b>Atendiendo</b></h4>
                             <br>
                         </div>
@@ -151,6 +151,35 @@
                         <div id="lista_disponibles" class="well">
                             <h4><b>Disponibles</b></h4>
                             <br>
+                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid red;">
+                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                                    Pedido #93939
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">El Gallego</h5>
+                                    <p class="card-text">Cantidad: 2</p>
+                                    <p class="card-text">Precio: $100</p>
+                                    <p class="card-text">Fecha: 2024-05-17</p>
+                                    <p class="card-text">Tiempo Esperando: <b>30 minutos</b></p>
+                                    <a href="#" class="btn btn-primary">Ver Detalles</a> <a href="#" class="btn btn-success">Atender</a>
+                                    <br>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid yellow;">
+                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                                    Pedido #394311
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">El Basico</h5>
+                                    <p class="card-text">Cantidad: 2</p>
+                                    <p class="card-text">Precio: $100</p>
+                                    <p class="card-text">Fecha: 2024-05-17</p>
+                                    <p class="card-text">Tiempo Esperando: <b>10 minutos</b></p>
+                                    <a href="#" class="btn btn-primary">Ver Detalles</a> <a href="#" class="btn btn-success">Atender</a>
+                                    <br>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -328,13 +357,7 @@
             .select('*')
             .eq('status', 1);
 
-        const { data: data4, error: error4 } = await supabase
-            .from('pedidos')
-            .select('*')
-            .eq('status', 2)
-            .eq('cocinero_id', id);
-
-        if (error || error2 || error3 || error4) {
+        if (error || error2 || error3) {
             alert('Error! Checa la conexión con la base de datos');
         }else{
             document.getElementById('nombre').value = data[0]["nombre"];
@@ -521,77 +544,6 @@
                 `;
             });
 
-
-            data4.forEach(pedido => {
-                var id_pedido = pedido["id"];
-                var tipo_text = "";
-                if(pedido["tipo"] === 1){
-                    tipo_text = "El Asado";
-                }else if(pedido["tipo"] === 2){
-                    tipo_text = "El Polaco";
-                }else if(pedido["tipo"] === 3){
-                    tipo_text = "El Gallego";
-                }else if(pedido["tipo"] === 4){
-                    tipo_text = "El Che";
-                }
-                var cantidad = pedido["cantidad"];
-                var monto = pedido["monto"];
-                var fecha = pedido["created_at"];
-
-                var ingredientes = pedido["ingredientes"];
-                var metodo_pago = pedido["metodo_pago"];
-                var pago = "";
-                if(metodo_pago === 1){
-                    pago = "Efectivo";
-                }else if(metodo_pago === 2){
-                    pago = "PayPal";
-                }else if(metodo_pago === 3){
-                    pago = "Transferencia";
-                }
-                var metodo_envio = pedido["envio_tipo"];
-                var envio = "";
-                if(metodo_envio === 1){
-                    envio = "Se recogera en el local";
-                }else if(metodo_envio === 2){
-                    envio = "Envio a mi direccion";
-                }
-
-                const date = new Date(pedido["created_at"]);
-                const year = date.getFullYear();
-                const month = date.getMonth() + 1;
-                const day = date.getDate();
-                const hours = date.getHours();
-                const minutes = date.getMinutes();
-                const seconds = date.getSeconds();
-
-                var cali_cocinero = pedido["cocinero_cali"];
-                var cali_repartidor = pedido["repartidor_cali"];
-
-                document.getElementById("lista_atendiendo")
-                .innerHTML +=
-                `   <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid #3d5aa5;">
-                        <div class="card-header" style="background-color: #3d5aa5; color: white;">
-                            Pedido #${id_pedido}
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">${tipo_text}</h5>
-                            <p class="card-text">Cantidad: ${cantidad}</p>
-                            <p class="card-text">Precio: $${monto}</p>
-                            <p class="card-text">Fecha: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}</p>
-                            <br>
-                            <form id="formcompletado">
-                                <input type="hidden" id="atender_id" name="atender_id" value="${id_pedido}">
-                                <button type="submit" class="btn btn-success">Marcar Completado</button>
-                            </form>
-                            <br>
-                            <a href="#" onclick='infoPedido("${tipo_text}",${cantidad},${monto},"${ingredientes}","${pago}","${envio}")' data-toggle="modal" data-target="#pedidoModal2" class="btn btn-primary">Ver Detalles</a>
-                            <br>
-                        </div>
-                    </div>
-                    <br>
-                `;
-            });
-
             promedio = promedio / data2.length;
             if(promedio == 5){
                 document.getElementById('promedio').innerText = "⭐⭐⭐⭐⭐";
@@ -609,31 +561,6 @@
 
 
         }
-
-        document.getElementById('formatender').addEventListener('submit', async function(event) {
-            event.preventDefault();
-
-            const userConfirmed = confirm("¿Quieres realmente atender este pedido?");
-            if (userConfirmed) {
-                var atender_id = document.getElementById('atender_id').value;
-                var cocinero_id = sessionStorage.getItem('id');
-
-                const { data, error } = await supabase
-                        .from('pedidos')
-                        .update([
-                            {   cocinero_id: cocinero_id, 
-                                status: 2
-                            }
-                        ])
-                        .eq('id', atender_id);
-                if (error) {
-                    console.error('Error actualizando registro:', error);
-                } else {
-                    alert('Actualizamiento exitoso');
-                    location.reload();
-                }
-            }
-        });
 
         document.getElementById('perfilform').addEventListener('submit', async function(event) {
                 event.preventDefault();
