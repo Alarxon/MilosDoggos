@@ -118,7 +118,7 @@
                 <div class="row">
                     <div class="col-sm-12" style="font-family: 'Courier New', Courier, monospace; text-align: center; color: #3d5aa5;">
                         <div id="lista_proceso" class="well">
-                            <h4>En Proceso</h4>
+                            <h4>Activos</h4>
                             <br>
                         </div>
                     </div>
@@ -423,7 +423,7 @@
         const { data: data3, error: error3 } = await supabase
                 .from('pedidos')
                 .select('*')
-                .eq('status', 1);
+                .or('status.eq.1,status.eq.2,status.eq.3');
 
         const { data: data4, error: error4 } = await supabase
                 .from('pedidos')
@@ -476,6 +476,16 @@
 
             data3.forEach(pedido => {
                 var id_pedido = pedido["id"];
+                var status_pedido = pedido["status"];
+                var status_text = "";
+                if(status_pedido == 1){
+                    status_text = "EN PROCESO";
+                }else if(status_pedido == 2){
+                    status_text = "PREPARANDO";
+                }else if(status_pedido == 3){
+                    status_text = "DE CAMINO";
+                }
+
                 var tipo_text = "";
                 if(pedido["tipo"] === 1){
                     tipo_text = "El Asado";
@@ -528,6 +538,7 @@
                             <p class="card-text">Precio: $${monto}</p>
                             <p class="card-text">Fecha: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}</p>
                             <p class="card-text"><b>Tiempo Aproximado de Entrega: 10 a 30 minutos</b></p>
+                            <p class="card-text"><b>Estatus: ${status_text}</b></p>
                             <a href="#" onclick='infoPedido("${tipo_text}",${cantidad},${monto},"${ingredientes}","${pago}","${envio}")' data-toggle="modal" data-target="#pedidoModal2" class="btn btn-primary">Ver Detalles</a>
                             <br>
                         </div>
