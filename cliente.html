@@ -355,7 +355,7 @@
 
     $(document).ready(async function () {
         var id = sessionStorage.getItem('id');
-        const { data, error } = await supabase
+        const { data: data, error: error } = await supabase
                 .from('usuarios')
                 .select('*')
                 .eq('id', id);
