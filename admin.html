@@ -549,31 +549,31 @@
                     const { data, error } = await supabase
                     .from('usuarios')
                     .update([
-                        { nombre: nombre, 
-                          email: email, 
-                          direccion: direccion, 
-                          edad: edad, 
-                          genero: genero,
-                          nacimiento: nacimiento, 
-                          opinion: opinion, 
-                          rol: rol, 
-                          usuario: usuario, 
-                          password: password}
+                        {   nombre: nombre, 
+                            email: email, 
+                            direccion: direccion, 
+                            edad: edad, 
+                            genero: genero,
+                            nacimiento: nacimiento, 
+                            opinion: opinion, 
+                            rol: rol, 
+                            usuario: usuario, 
+                            password: password}
                     ])
                     .eq('id', id);
                 }else{
                     const { data, error } = await supabase
                     .from('usuarios')
                     .update([
-                        { nombre: nombre, 
-                          email: email, 
-                          direccion: direccion, 
-                          edad: edad, 
-                          genero: genero,
-                          nacimiento: nacimiento, 
-                          opinion: opinion, 
-                          rol: rol, 
-                          usuario: usuario}
+                        {   nombre: nombre, 
+                            email: email, 
+                            direccion: direccion, 
+                            edad: edad, 
+                            genero: genero,
+                            nacimiento: nacimiento, 
+                            opinion: opinion, 
+                            rol: rol, 
+                            usuario: usuario}
                     ])
                     .eq('id', id);
                 }
