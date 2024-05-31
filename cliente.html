@@ -468,7 +468,11 @@
             document.getElementById('nacimiento').value = data[0]["nacimiento"];
             document.getElementById('opinion').value = data[0]["opinion"];
 
-            document.getElementById('img_perfil').src = data[0]["foto"];
+            if(data[0]["foto"]){
+                document.getElementById('img_perfil').src = data[0]["foto"];
+            }else{
+                document.getElementById('img_perfil').src = "img/avatar.png";
+            }
 
             data3.forEach(pedido => {
                 var id_pedido = pedido["id"];
@@ -523,6 +527,7 @@
                             <p class="card-text">Cantidad: ${cantidad}</p>
                             <p class="card-text">Precio: $${monto}</p>
                             <p class="card-text">Fecha: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}</p>
+                            <p class="card-text"><b>Tiempo Aproximado de Entrega: 10 a 30 minutos</b></p>
                             <a href="#" onclick='infoPedido("${tipo_text}",${cantidad},${monto},"${ingredientes}","${pago}","${envio}")' data-toggle="modal" data-target="#pedidoModal2" class="btn btn-primary">Ver Detalles</a>
                             <br>
                         </div>
