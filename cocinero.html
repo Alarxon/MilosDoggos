@@ -580,8 +580,8 @@
                             <p class="card-text">Fecha: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}</p>
                             <br>
                             <form id="formcompletado">
-                                <input type="hidden" id="atender_id" name="atender_id" value="${id_pedido}">
-                                <button type="submit" class="btn btn-success">Marcar Completado</button>
+                                <input type="hidden" id="completado_id" name="completado_id" value="${id_pedido}">
+                                <button type="submit" class="btn btn-success">Marcar como Completado</button>
                             </form>
                             <br>
                             <a href="#" onclick='infoPedido("${tipo_text}",${cantidad},${monto},"${ingredientes}","${pago}","${envio}")' data-toggle="modal" data-target="#pedidoModal2" class="btn btn-primary">Ver Detalles</a>
@@ -609,6 +609,28 @@
 
 
         }
+
+        document.getElementById('formcompletado').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const userConfirmed = confirm("¿Quieres marcar como completado este pedido?");
+            if (userConfirmed) {
+                var completado_id = document.getElementById('completado_id').value;
+                const { data, error } = await supabase
+                        .from('pedidos')
+                        .update([
+                            {   
+                                status: 3
+                            }
+                        ])
+                        .eq('id', completado_id);
+                if (error) {
+                    console.error('Error actualizando registro:', error);
+                } else {
+                    alert('Actualizamiento exitoso');
+                    location.reload();
+                }
+            }
+        });
 
         document.getElementById('formatender').addEventListener('submit', async function(event) {
             event.preventDefault();
