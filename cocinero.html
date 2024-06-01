@@ -337,6 +337,7 @@
 
             document.getElementById('atendidos').innerText = data2.length;
             var promedio = 0;
+            var cont = 1;
             data2.forEach(pedido => {
                 promedio = promedio + pedido["cocinero_cali"];
 
@@ -399,8 +400,8 @@
                             <form>
                                 <input type="hidden" id="cali_id" name="cali_id" value="${id_pedido}">
                                 <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
-                                    <label for="cali_cocinero">Calificación del cocinero:&nbsp</label>
-                                    <select disabled required id="cali_cocinero" name="cali_cocinero" class="form-control" style="width:25%; font-family: 'Courier New', Courier, monospace;">
+                                    <label for="cali_cocinero${cont}">Calificación del cocinero:&nbsp</label>
+                                    <select disabled required id="cali_cocinero${cont}" name="cali_cocinero${cont}" class="form-control" style="width:25%; font-family: 'Courier New', Courier, monospace;">
                                         <option value="5">⭐⭐⭐⭐⭐</option>
                                         <option value="4">⭐⭐⭐⭐</option
                                         <option value="3">⭐⭐⭐</option>
@@ -410,8 +411,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
-                                    <label for="cali_repartidor">Calificación del repartidor:&nbsp</label>
-                                    <select disabled required id="cali_repartidor" name="cali_repartidor" class="form-control" style="width:25%; font-family: 'Courier New', Courier, monospace;">
+                                    <label for="cali_repartidor${cont}">Calificación del repartidor:&nbsp</label>
+                                    <select disabled required id="cali_repartidor${cont}" name="cali_repartidor${cont}" class="form-control" style="width:25%; font-family: 'Courier New', Courier, monospace;">
                                         <option value="5">⭐⭐⭐⭐⭐</option>
                                         <option value="4">⭐⭐⭐⭐</option
                                         <option value="3">⭐⭐⭐</option>
@@ -429,8 +430,9 @@
                     <br>
                 `;
 
-                document.getElementById('cali_cocinero').value = cali_cocinero;
-                document.getElementById('cali_repartidor').value = cali_repartidor;
+                document.getElementById('cali_cocinero' + cont).value = cali_cocinero;
+                document.getElementById('cali_repartidor' + cont).value = cali_repartidor;
+                cont = cont + 1;
             });
 
 
@@ -595,9 +597,18 @@
 
         document.getElementById('formcompletado').addEventListener('submit', async function(event) {
             event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            const formValues = {};
+            formData.forEach((value, key) => {
+                formValues[key] = value;
+            });
+
             const userConfirmed = confirm("¿Quieres marcar como completado este pedido?");
             if (userConfirmed) {
-                var completado_id = document.getElementById('completado_id').value;
+                var completado_id = formValues['completado_id'];
                 const { data, error } = await supabase
                         .from('pedidos')
                         .update([
@@ -618,9 +629,17 @@
         document.getElementById('formatender').addEventListener('submit', async function(event) {
             event.preventDefault();
 
+            const form = event.target;
+            const formData = new FormData(form);
+
+            const formValues = {};
+            formData.forEach((value, key) => {
+                formValues[key] = value;
+            });
+
             const userConfirmed = confirm("¿Quieres realmente atender este pedido?");
             if (userConfirmed) {
-                var atender_id = document.getElementById('atender_id').value;
+                var atender_id = formValues['atender_id'];
                 var cocinero_id = sessionStorage.getItem('id');
 
                 const { data, error } = await supabase

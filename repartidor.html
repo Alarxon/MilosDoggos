@@ -96,13 +96,13 @@
                     <div class="col-sm-6">
                         <div class="well">
                             <h4>Pedidos Atendidos</h4>
-                            <p>100</p>
+                            <p id="atendidos"></p>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="well">
                             <h4>Calificacion Promedio</h4>
-                            <p>⭐⭐⭐⭐⭐</p>
+                            <p id="promedio"></p>
                         </div>
                     </div>
                 </div>
@@ -122,103 +122,83 @@
                 <br>
                 <div class="row">
                     <div class="col-sm-12" style="font-family: 'Courier New', Courier, monospace; text-align: center; color: #3d5aa5;">
-                        <div class="well">
+                        <div id="lista_atendiendo" class="well">
                             <h4><b>Atendiendo</b></h4>
                             <br>
-                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid green;">
-                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
-                                    Pedido #393939
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">El Basico</h5>
-                                    <p class="card-text">Direccion: Calle tal entre tal, numero #334. CP #123</p>
-                                    <p class="card-text">Fecha: 2024-05-17</p>
-                                    <p class="card-text">Tiempo Esperando: <b>30 minutos</b></p>
-                                    <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1147.3523997768127!2d-96.13078900609986!3d19.179848672375684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c341106f8616bf%3A0x3f286e89c24e805d!2sMilo&#39;s%20Doggos!5e0!3m2!1ses-419!2smx!4v1715822713369!5m2!1ses-419!2smx"
-                                    width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    <a href="#" class="btn btn-primary">Ver Detalles</a> <a href="#" class="btn btn-success">Atender</a>
-                                    <br>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-sm-12" style="font-family: 'Courier New', Courier, monospace; text-align: center; color: #3d5aa5;">
-                        <div class="well">
-                            <h4><b>Disponibles</b></h4>
+                        <div id="lista_disponibles" class="well">
+                            <h4 ><b>Disponibles</b></h4>
                             <br>
-                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid red;">
-                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
-                                    Pedido #93939
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">El Gallego</h5>
-                                    <p class="card-text">Direccion: Calle tal entre tal, numero #100. CP #93449</p>
-                                    <p class="card-text">Fecha: 2024-05-17</p>
-                                    <p class="card-text">Tiempo Esperando: <b>30 minutos</b></p>
-                                    <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1147.3523997768127!2d-96.13078900609986!3d19.179848672375684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c341106f8616bf%3A0x3f286e89c24e805d!2sMilo&#39;s%20Doggos!5e0!3m2!1ses-419!2smx!4v1715822713369!5m2!1ses-419!2smx"
-                                    width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    <a href="#" class="btn btn-primary">Ver Detalles</a> <a href="#" class="btn btn-success">Atender</a>
-                                    <br>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid yellow;">
-                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
-                                    Pedido #394311
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">El Basico</h5>
-                                    <p class="card-text">Direccion: Calle tal entre tal, numero #111. CP #34534</p>
-                                    <p class="card-text">Fecha: 2024-05-17</p>
-                                    <p class="card-text">Tiempo Esperando: <b>10 minutos</b></p>
-                                    <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1147.3523997768127!2d-96.13078900609986!3d19.179848672375684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c341106f8616bf%3A0x3f286e89c24e805d!2sMilo&#39;s%20Doggos!5e0!3m2!1ses-419!2smx!4v1715822713369!5m2!1ses-419!2smx"
-                                    width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    <a href="#" class="btn btn-primary">Ver Detalles</a> <a href="#" class="btn btn-success">Atender</a>
-                                    <br>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-sm-12" style="font-family: 'Courier New', Courier, monospace; text-align: center; color: #3d5aa5;">
-                        <div class="well">
+                        <div id="lista_historial" class="well">
                             <h4><b>Historial Atendidos</b></h4>
                             <br>
-                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid #3d5aa5;">
-                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
-                                    Pedido #12345
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">El Polaco</h5>
-                                    <p class="card-text">Direccion: Calle tal entre tal, numero #34553. CP #3342</p>
-                                    <p class="card-text">Fecha: 2024-05-17</p>
-                                    <a href="#" class="btn btn-primary">Ver Detalles</a>
-                                    <br>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="pedidoModal2" tabindex="-1" role="dialog" aria-labelledby="pedidoModalLabel2" aria-hidden="true" >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="pedidoModalLabel2">Info Pedido</h5>
+                                <button style="font-family: 'Courier New', Courier, monospace;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <img src="img/MILOS-DOGGOS_ICONO_01.png" class="img-responsive" style="width:30%; margin: 0 auto;" alt="Image">
                             </div>
-                            <br>
-                            <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid #3d5aa5;">
-                                <div class="card-header" style="background-color: #3d5aa5; color: white;">
-                                    Pedido #6789
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">El Basico</h5>
-                                    <p class="card-text">Direccion: Calle tal entre tal, numero #212. CP #312</p>
-                                    <p class="card-text">Fecha: 2024-05-17</p>
-                                    <a href="#" class="btn btn-primary">Ver Detalles</a>
-                                    <br>
-                                </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="tipo" style="color: #3d5aa5;">Tipo</label>
+                                        <input disabled type="text" class="form-control" id="tipo_info" name="tipo_info"
+                                            style="font-family: 'Courier New', Courier, monospace;"
+                                            placeholder="Ingresa el tipo">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cantidad" style="color: #3d5aa5;">Cantidad</label>
+                                        <input disabled type="number" class="form-control" id="cantidad_info" name="cantidad_info"
+                                            style="font-family: 'Courier New', Courier, monospace;"
+                                            placeholder="Ingresa la cantidad">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="monto" style="color: #3d5aa5;">Monto Total</label>
+                                        <input disabled type="number" class="form-control" id="monto_info" name="monto_info"
+                                            style="font-family: 'Courier New', Courier, monospace;"
+                                            placeholder="Ingresa el monto">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tipo" style="color: #3d5aa5;">Ingredientes</label>
+                                        <input disabled type="text" class="form-control" id="ingredientes_info" name="ingredientes_info"
+                                            style="font-family: 'Courier New', Courier, monospace;"
+                                            placeholder="Ingresa los ingredientes">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pago" style="color: #3d5aa5;">Metodo de Pago</label>
+                                        <input disabled type="text" class="form-control" id="pago_info" name="pago_info"
+                                            style="font-family: 'Courier New', Courier, monospace;"
+                                            placeholder="Ingresa el metodo de pago">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="envio" style="color: #3d5aa5;">Envio</label>
+                                        <input disabled type="text" class="form-control" id="envio_info" name="envio_info"
+                                        style="font-family: 'Courier New', Courier, monospace;"
+                                        placeholder="Ingresa el metodo de envio">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>
@@ -232,33 +212,33 @@
                 <div class="row">
                     <div class="col-sm-12" style="text-align: center; color: #3d5aa5;;">
                         <div class="well">
-                            <form method="get" action="index.html">
+                            <form id="perfilform">
                                 <h4>Mi Perfil</h4>
                                 <p>Da click en la imagen para subir una nueva</p>
                                 <label for="avatar-upload">
-                                    <img src="img/avatar.png" class="img-responsive" style="width:30%; margin: 0 auto; cursor: pointer;" alt="Image">
+                                    <img id="img_perfil" class="img-responsive" style="width:30%; margin: 0 auto; cursor: pointer;" alt="Image">
                                 </label>
-                                <input type="file" id="avatar-upload" name="avatar" style="display: none;">                                <br>
+                                <input onchange="changeImg()" type="file" id="avatar-upload" name="img_perfil" style="display: none;">                                <br>
                                 <div class="form-group">
                                     <label for="nombre">Nombre</label>
-                                    <input value="S. Alarcon" style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="nombre" name="nombre"
+                                    <input required style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="nombre" name="nombre"
                                         placeholder="Ingresa tu nombre completo">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Correo Electronico</label>
-                                    <input value="prueba@gmail.com" style="font-family: 'Courier New', Courier, monospace;" type="email" class="form-control" id="email" name="email"
+                                    <input required style="font-family: 'Courier New', Courier, monospace;" type="email" class="form-control" id="email" name="email"
                                         placeholder="Ingresa tu correo electronico">
                                 </div>
                                 <div class="form-group">
                                     <label for="direccion">Direccion</label>
-                                    <input value="Casa #100 entre Calle 1 y Calle 2, Veracruz, Veracruz. CP. 94390" style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="direccion" name="direccion"
+                                    <input required style="font-family: 'Courier New', Courier, monospace;" type="text" class="form-control" id="direccion_perfil" name="direccion"
                                         placeholder="Ingresa tu direccion">
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="edad">Edad</label>
-                                            <input value="26" style="font-family: 'Courier New', Courier, monospace;" type="number" class="form-control" id="edad" name="edad"
+                                            <input required style="font-family: 'Courier New', Courier, monospace;" type="number" class="form-control" id="edad" name="edad"
                                                 placeholder="Ingresa tu edad">
                                         </div>
                                     </div>
@@ -266,9 +246,9 @@
                                         <div class="form-group">
                                             <label for="genero">Genero</label>
                                             <br>
-                                            <select id="genero" name="genero" class="form-control" style="font-family: 'Courier New', Courier, monospace;">
-                                                <option selected>Selecciona una opcion</option>
-                                                <option value="1" selected>Femenimo</option>
+                                            <select required id="genero" name="genero" class="form-control" style="font-family: 'Courier New', Courier, monospace;">
+                                                <option>Selecciona una opcion</option>
+                                                <option value="1">Femenimo</option>
                                                 <option value="2">Masculino</option>
                                                 <option value="3">Otro</option>
                                             </select>
@@ -277,7 +257,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="nacimiento">Fecha Nacimiento</label>
-                                            <input value="1998-03-04" style="font-family: 'Courier New', Courier, monospace;" type="date"
+                                            <input required style="font-family: 'Courier New', Courier, monospace;" type="date"
                                                 class="form-control" id="nacimiento" name="nacimiento"
                                                 placeholder="Ingresa tu fecha de nacimiento">
                                         </div>
@@ -285,7 +265,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="opinion">Datos tu opinion<br><br> Que tipo de HotDog te gustan, tus toppings favoritos, etc</label>
-                                    <textarea style="resize: none;font-family: 'Courier New', Courier, monospace;"  class="form-control" id="opinion" name="opinion" rows="5">El polaco y los toppings de papa</textarea>
+                                    <textarea style="resize: none;font-family: 'Courier New', Courier, monospace;"  class="form-control" id="opinion" name="opinion" rows="5" required></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-block btn-primary">Guardar Datos</button>
                             </form>
@@ -297,7 +277,470 @@
     </div>
 </body>
 
+<script src="js/supabase.min.js"></script>
+<script src="js/crypto-js.min.js"></script>
+<script>
+    const supabaseUrl = 'https://jfxowkbzdovqdpwpbxyg.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmeG93a2J6ZG92cWRwd3BieHlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY4Mzc1MDEsImV4cCI6MjAzMjQxMzUwMX0.owrR1NEhH7uOqLsQn3qUYWKLGQW3NeEQBbYnPyy9BB0';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+    function getBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+
+    $(document).ready(async function () {
+        var id = sessionStorage.getItem('id');
+        const { data: data, error: error } = await supabase
+                .from('usuarios')
+                .select('*')
+                .eq('id', id);
+
+        const { data: data2, error: error2 } = await supabase
+            .from('pedidos')
+            .select('*')
+            .eq('status', 0)
+            .eq('repartidor_id', id);
+
+        const { data: data3, error: error3 } = await supabase
+            .from('pedidos')
+            .select('*')
+            .eq('status', 3);
+    
+        const { data: data4, error: error4 } = await supabase
+            .from('pedidos')
+            .select('*')
+            .eq('status', 4)
+            .eq('repartidor_id', id);
+
+        if (error || error2 || error3 || error4) {
+            alert('Error! Checa la conexión con la base de datos');
+        }else{
+            document.getElementById('nombre').value = data[0]["nombre"];
+            document.getElementById('email').value = data[0]["email"];
+            document.getElementById('direccion_perfil').value = data[0]["direccion"];
+            document.getElementById('edad').value = data[0]["edad"];
+            document.getElementById('genero').value = data[0]["genero"];
+            document.getElementById('nacimiento').value = data[0]["nacimiento"];
+            document.getElementById('opinion').value = data[0]["opinion"];
+
+            if(data[0]["foto"]){
+                document.getElementById('img_perfil').src = data[0]["foto"];
+            }else{
+                document.getElementById('img_perfil').src = "img/avatar.png";
+            }
+
+            document.getElementById('atendidos').innerText = data2.length;
+            var promedio = 0;
+            var cont = 1;
+            data2.forEach(pedido => {
+                promedio = promedio + pedido["repartidor_cali"];
+
+
+                var id_pedido = pedido["id"];
+                var tipo_text = "";
+                if(pedido["tipo"] === 1){
+                    tipo_text = "El Asado";
+                }else if(pedido["tipo"] === 2){
+                    tipo_text = "El Polaco";
+                }else if(pedido["tipo"] === 3){
+                    tipo_text = "El Gallego";
+                }else if(pedido["tipo"] === 4){
+                    tipo_text = "El Che";
+                }
+                var cantidad = pedido["cantidad"];
+                var monto = pedido["monto"];
+                var fecha = pedido["created_at"];
+
+                var ingredientes = pedido["ingredientes"];
+                var metodo_pago = pedido["metodo_pago"];
+                var pago = "";
+                if(metodo_pago === 1){
+                    pago = "Efectivo";
+                }else if(metodo_pago === 2){
+                    pago = "PayPal";
+                }else if(metodo_pago === 3){
+                    pago = "Transferencia";
+                }
+                var metodo_envio = pedido["envio_tipo"];
+                var envio = "";
+                if(metodo_envio === 1){
+                    envio = "Se recogera en el local";
+                }else if(metodo_envio === 2){
+                    envio = "Envio a mi direccion";
+                }
+
+                const date = new Date(pedido["created_at"]);
+                const year = date.getFullYear();
+                const month = date.getMonth() + 1;
+                const day = date.getDate();
+                const hours = date.getHours();
+                const minutes = date.getMinutes();
+                const seconds = date.getSeconds();
+
+                var cali_cocinero = pedido["cocinero_cali"];
+                var cali_repartidor = pedido["repartidor_cali"];
+
+                document.getElementById("lista_historial")
+                .innerHTML +=
+                `   <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid #3d5aa5;">
+                        <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                            Pedido #${id_pedido}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${tipo_text}</h5>
+                            <p class="card-text">Cantidad: ${cantidad}</p>
+                            <p class="card-text">Precio: $${monto}</p>
+                            <p class="card-text">Fecha: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}</p>
+                            <br>
+                            <form>
+                                <input type="hidden" id="cali_id" name="cali_id" value="${id_pedido}">
+                                <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
+                                    <label for="cali_cocinero${cont}">Calificación del cocinero:&nbsp</label>
+                                    <select disabled required id="cali_cocinero${cont}" name="cali_cocinero${cont}" class="form-control" style="width:25%; font-family: 'Courier New', Courier, monospace;">
+                                        <option value="5">⭐⭐⭐⭐⭐</option>
+                                        <option value="4">⭐⭐⭐⭐</option
+                                        <option value="3">⭐⭐⭐</option>
+                                        <option value="2">⭐⭐</option>
+                                        <option value="1">⭐</option>
+                                        <option value="0"></option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
+                                    <label for="cali_repartidor${cont}">Calificación del repartidor:&nbsp</label>
+                                    <select disabled required id="cali_repartidor${cont}" name="cali_repartidor${cont}" class="form-control" style="width:25%; font-family: 'Courier New', Courier, monospace;">
+                                        <option value="5">⭐⭐⭐⭐⭐</option>
+                                        <option value="4">⭐⭐⭐⭐</option
+                                        <option value="3">⭐⭐⭐</option>
+                                        <option value="2">⭐⭐</option>
+                                        <option value="1">⭐</option>
+                                        <option value="0"></option>
+                                    </select>
+                                </div>
+                            </form>
+                            <br>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1147.3523997768127!2d-96.13078900609986!3d19.179848672375684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c341106f8616bf%3A0x3f286e89c24e805d!2sMilo&#39;s%20Doggos!5e0!3m2!1ses-419!2smx!4v1715822713369!5m2!1ses-419!2smx"
+                                width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <br>
+                            <a href="#" onclick='infoPedido("${tipo_text}",${cantidad},${monto},"${ingredientes}","${pago}","${envio}")' data-toggle="modal" data-target="#pedidoModal2" class="btn btn-primary">Ver Detalles</a>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                `;
+
+                document.getElementById('cali_cocinero' + cont).value = cali_cocinero;
+                document.getElementById('cali_repartidor' + cont).value = cali_repartidor;
+                cont = cont + 1;
+            });
+
+            data3.forEach(pedido => {
+                var id_pedido = pedido["id"];
+                var tipo_text = "";
+                if(pedido["tipo"] === 1){
+                    tipo_text = "El Asado";
+                }else if(pedido["tipo"] === 2){
+                    tipo_text = "El Polaco";
+                }else if(pedido["tipo"] === 3){
+                    tipo_text = "El Gallego";
+                }else if(pedido["tipo"] === 4){
+                    tipo_text = "El Che";
+                }
+                var cantidad = pedido["cantidad"];
+                var monto = pedido["monto"];
+                var fecha = pedido["created_at"];
+
+                var ingredientes = pedido["ingredientes"];
+                var metodo_pago = pedido["metodo_pago"];
+                var pago = "";
+                if(metodo_pago === 1){
+                    pago = "Efectivo";
+                }else if(metodo_pago === 2){
+                    pago = "PayPal";
+                }else if(metodo_pago === 3){
+                    pago = "Transferencia";
+                }
+                var metodo_envio = pedido["envio_tipo"];
+                var envio = "";
+                if(metodo_envio === 1){
+                    envio = "Se recogera en el local";
+                }else if(metodo_envio === 2){
+                    envio = "Envio a mi direccion";
+                }
+
+                const date = new Date(pedido["created_at"]);
+                const year = date.getFullYear();
+                const month = date.getMonth() + 1;
+                const day = date.getDate();
+                const hours = date.getHours();
+                const minutes = date.getMinutes();
+                const seconds = date.getSeconds();
+
+                var cali_cocinero = pedido["cocinero_cali"];
+                var cali_repartidor = pedido["repartidor_cali"];
+
+                document.getElementById("lista_disponibles")
+                .innerHTML +=
+                `   <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid #3d5aa5;">
+                        <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                            Pedido #${id_pedido}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${tipo_text}</h5>
+                            <p class="card-text">Cantidad: ${cantidad}</p>
+                            <p class="card-text">Precio: $${monto}</p>
+                            <p class="card-text">Fecha: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}</p>
+                            <br>
+                            <form id="formatender">
+                                <input type="hidden" id="atender_id" name="atender_id" value="${id_pedido}">
+                                <button type="submit" class="btn btn-success">Atender</button>
+                            </form>
+                            <br>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1147.3523997768127!2d-96.13078900609986!3d19.179848672375684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c341106f8616bf%3A0x3f286e89c24e805d!2sMilo&#39;s%20Doggos!5e0!3m2!1ses-419!2smx!4v1715822713369!5m2!1ses-419!2smx"
+                                width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <br>
+                            <a href="#" onclick='infoPedido("${tipo_text}",${cantidad},${monto},"${ingredientes}","${pago}","${envio}")' data-toggle="modal" data-target="#pedidoModal2" class="btn btn-primary">Ver Detalles</a>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                `;
+            });
+
+
+            data4.forEach(pedido => {
+                var id_pedido = pedido["id"];
+                var tipo_text = "";
+                if(pedido["tipo"] === 1){
+                    tipo_text = "El Asado";
+                }else if(pedido["tipo"] === 2){
+                    tipo_text = "El Polaco";
+                }else if(pedido["tipo"] === 3){
+                    tipo_text = "El Gallego";
+                }else if(pedido["tipo"] === 4){
+                    tipo_text = "El Che";
+                }
+                var cantidad = pedido["cantidad"];
+                var monto = pedido["monto"];
+                var fecha = pedido["created_at"];
+
+                var ingredientes = pedido["ingredientes"];
+                var metodo_pago = pedido["metodo_pago"];
+                var pago = "";
+                if(metodo_pago === 1){
+                    pago = "Efectivo";
+                }else if(metodo_pago === 2){
+                    pago = "PayPal";
+                }else if(metodo_pago === 3){
+                    pago = "Transferencia";
+                }
+                var metodo_envio = pedido["envio_tipo"];
+                var envio = "";
+                if(metodo_envio === 1){
+                    envio = "Se recogera en el local";
+                }else if(metodo_envio === 2){
+                    envio = "Envio a mi direccion";
+                }
+
+                const date = new Date(pedido["created_at"]);
+                const year = date.getFullYear();
+                const month = date.getMonth() + 1;
+                const day = date.getDate();
+                const hours = date.getHours();
+                const minutes = date.getMinutes();
+                const seconds = date.getSeconds();
+
+                var cali_cocinero = pedido["cocinero_cali"];
+                var cali_repartidor = pedido["repartidor_cali"];
+
+                document.getElementById("lista_atendiendo")
+                .innerHTML +=
+                `   <div class="card" style="margin: 0 auto; max-width: 600px;border: 2px solid #3d5aa5;">
+                        <div class="card-header" style="background-color: #3d5aa5; color: white;">
+                            Pedido #${id_pedido}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${tipo_text}</h5>
+                            <p class="card-text">Cantidad: ${cantidad}</p>
+                            <p class="card-text">Precio: $${monto}</p>
+                            <p class="card-text">Fecha: ${year}-${month}-${day} ${hours}:${minutes}:${seconds}</p>
+                            <br>
+                            <form id="formcompletado">
+                                <input type="hidden" id="completado_id" name="completado_id" value="${id_pedido}">
+                                <button type="submit" class="btn btn-success">Marcar como Completado</button>
+                            </form>
+                            <br>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1147.3523997768127!2d-96.13078900609986!3d19.179848672375684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c341106f8616bf%3A0x3f286e89c24e805d!2sMilo&#39;s%20Doggos!5e0!3m2!1ses-419!2smx!4v1715822713369!5m2!1ses-419!2smx"
+                                width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <br>
+                            <a href="#" onclick='infoPedido("${tipo_text}",${cantidad},${monto},"${ingredientes}","${pago}","${envio}")' data-toggle="modal" data-target="#pedidoModal2" class="btn btn-primary">Ver Detalles</a>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                `;
+            });
+
+            promedio = promedio / data2.length;
+            if(promedio == 5){
+                document.getElementById('promedio').innerText = "⭐⭐⭐⭐⭐";
+            }else if(promedio == 4){
+                document.getElementById('promedio').innerText = "⭐⭐⭐⭐";
+            }else if(promedio == 3){
+                document.getElementById('promedio').innerText = "⭐⭐⭐";
+            }else if(promedio == 2){
+                document.getElementById('promedio').innerText = "⭐⭐";
+            }else if(promedio == 1){
+                document.getElementById('promedio').innerText = "⭐";
+            }else{
+                document.getElementById('promedio').innerText = "";
+            }
+        }
+
+        document.getElementById('formcompletado').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            const formValues = {};
+            formData.forEach((value, key) => {
+                formValues[key] = value;
+            });
+
+            const userConfirmed = confirm("¿Quieres marcar como completado este pedido?");
+            if (userConfirmed) {
+                var completado_id = formValues['completado_id'];
+                const { data, error } = await supabase
+                        .from('pedidos')
+                        .update([
+                            {   
+                                status: 0
+                            }
+                        ])
+                        .eq('id', completado_id);
+                if (error) {
+                    console.error('Error actualizando registro:', error);
+                } else {
+                    alert('Actualizamiento exitoso');
+                    location.reload();
+                }
+            }
+        });
+
+        document.getElementById('formatender').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            const formValues = {};
+            formData.forEach((value, key) => {
+                formValues[key] = value;
+            });
+
+            const userConfirmed = confirm("¿Quieres realmente atender este pedido?");
+            if (userConfirmed) {
+                var atender_id = formValues['atender_id'];
+                var repartidor_id = sessionStorage.getItem('id');
+
+                const { data, error } = await supabase
+                        .from('pedidos')
+                        .update([
+                            {   repartidor_id: repartidor_id, 
+                                status: 4
+                            }
+                        ])
+                        .eq('id', atender_id);
+                if (error) {
+                    console.error('Error actualizando registro:', error);
+                } else {
+                    alert('Actualizamiento exitoso');
+                    location.reload();
+                }
+            }
+        });
+
+        document.getElementById('perfilform').addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                var id = sessionStorage.getItem('id');
+
+                const fileInput = document.getElementById('avatar-upload').files[0];
+
+                var foto = null;
+
+                if (fileInput) {
+                    foto = await getBase64(fileInput);
+                }
+
+                const nombre = document.getElementById('nombre').value;
+                const email = document.getElementById('email').value;
+                const direccion = document.getElementById('direccion_perfil').value;
+                const edad = document.getElementById('edad').value;
+                const genero = document.getElementById('genero').value;
+                const nacimiento = document.getElementById('nacimiento').value;
+                const opinion = document.getElementById('opinion').value;
+
+                const { data, error } = await supabase
+                    .from('usuarios')
+                    .update([
+                        {   nombre: nombre, 
+                            email: email, 
+                            direccion: direccion, 
+                            edad: edad, 
+                            genero: genero,
+                            nacimiento: nacimiento, 
+                            opinion: opinion,
+                            foto: foto
+                        }
+                    ])
+                    .eq('id', id);
+
+                if (error) {
+                    console.error('Error actualizando registro:', error);
+                } else {
+                    alert('Actualizamiento exitoso');
+                    location.reload();
+                }
+
+        });
+    });
+
+
+    function infoPedido(tipo_info, cantidad_info, monto_info, ingredientes_info,
+        pago_info, envio_info
+    ){
+        document.getElementById('tipo_info').value = tipo_info;
+        document.getElementById('cantidad_info').value = cantidad_info;
+        document.getElementById('monto_info').value = monto_info;
+        document.getElementById('ingredientes_info').value = ingredientes_info;
+        document.getElementById('pago_info').value = pago_info;
+        document.getElementById('envio_info').value = envio_info;
+    }
+
+    async function changeImg(){
+            const fileInput = document.getElementById('avatar-upload').files[0];
+
+            if (fileInput) {
+                const base64String = await getBase64(fileInput);
+                const jsonObject = {
+                        image: base64String
+                };
+                document.getElementById('img_perfil').src = base64String;
+            }
+    }
+</script>
 
 <script>
     $('#pedidos').hide();
