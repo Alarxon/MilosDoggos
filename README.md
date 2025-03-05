@@ -1,2 +1,2 @@
 # MilosDoggos
-Pagina Web de Milo's Doggos
+Pagina Web creada para tarea de Maestría en Sistemas Computacionales 
